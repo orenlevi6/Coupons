@@ -3,7 +3,7 @@ public class DBManager {
     public static final String SQL_USER = "root";
     public static final String SQL_PASS = "12345678";
 
-    //Databases
+    //Database
     public static final String CREATE_DB = "CREATE SCHEMA IF NOT EXISTS `coupons`";
     public static final String DROP_DB = "DROP SCHEMA `coupons`";
 
