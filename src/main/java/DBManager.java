@@ -69,5 +69,4 @@ public class DBManager {
                     "    ON DELETE NO ACTION" +
                     "    ON UPDATE NO ACTION)";
 
-
 }
