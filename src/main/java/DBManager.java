@@ -3,11 +3,11 @@ public class DBManager {
     public static final String SQL_USER = "root";
     public static final String SQL_PASS = "12345678";
 
-    //databases
+    //Databases
     public static final String CREATE_DB = "CREATE SCHEMA IF NOT EXISTS `coupons`";
     public static final String DROP_DB = "DROP SCHEMA `coupons`";
 
-    //tables
+    //Tables
     public static final String CREATE_COMPANIES_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`companies` (" +
             "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `name` VARCHAR(45) NULL," +
