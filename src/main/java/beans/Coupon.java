@@ -52,6 +52,12 @@ public class Coupon {
     }
 
     public void setCategory(Category category) {
+        for (Category item : Category.values()) {
+            if (item == category) {
+                this.category = category;
+                return;
+            }
+        }
         this.category = category;
     }
 
