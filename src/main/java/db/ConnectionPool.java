@@ -1,3 +1,7 @@
+package db;
+
+import db.db_manager.DBManager;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +20,7 @@ public class ConnectionPool {
 
     private void openAllConnections() throws SQLException {
         for (int counter = 0; counter < NUMBER_OF_CONNECTIONS; counter++) {
-            //Creates CONNECTION
+            //Creates new connection
             Connection connection = DriverManager.getConnection(DBManager.URL, DBManager.SQL_USER, DBManager.SQL_PASS);
             //Pushes the new connection into the stack
             connections.push(connection);
@@ -35,9 +39,9 @@ public class ConnectionPool {
     public static ConnectionPool getInstance() {
         //first we check that instance is null
         if (instance == null) {
-            //synchronized-critical code , that another advanced_oop.thread will not pass here
+            //Synchronized-critical code , makes sure that another thread will not pass here
             synchronized (ConnectionPool.class) {
-                //double check, that no other advanced_oop.thread create an instance.....
+                //Double-check, that no other thread has created an instance
                 if (instance == null) {
                     try {
                         instance = new ConnectionPool();
@@ -53,7 +57,7 @@ public class ConnectionPool {
     public Connection getConnection() throws InterruptedException {
         synchronized (connections) {
             if (connections.isEmpty()) {
-                //wait until we will get a connection back
+                //Wait until we will get a connection back
                 connections.wait();
             }
             return connections.pop();
@@ -63,7 +67,7 @@ public class ConnectionPool {
     public void returnConnection(Connection connection) {
         synchronized (connections) {
             connections.push(connection);
-            //notify that we got back a connection from the user...
+            //Notify that we got back a connection from the user...
             connections.notify();
         }
     }
