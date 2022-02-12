@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CouponsDBDAO implements CouponDAO {
+public class CouponDBDAO implements CouponDAO {
     @Override
     public boolean addCoupon(Coupon coupon) {
         Map<Integer,Object> values = new HashMap<>();

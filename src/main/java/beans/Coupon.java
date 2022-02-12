@@ -13,11 +13,13 @@ public class Coupon {
     private int amount;
     private double price;
     private String image;
+    private int categoryIndex;
 
-    public Coupon(int id, int companyID, Category category, String title, String description, Date startDate, Date endDate, int amount, double price, String image) {
+    public Coupon(int id, int companyID, int categoryIndex, String title,
+                  String description, Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
         this.companyID = companyID;
-        this.category = category;
+        this.category = Category.values()[categoryIndex];
         this.title = title;
         this.description = description;
         this.startDate = startDate;
@@ -25,6 +27,7 @@ public class Coupon {
         this.amount = amount;
         this.price = price;
         this.image = image;
+        this.categoryIndex = this.category.VALUE;
     }
 
     public Coupon() {
@@ -35,16 +38,12 @@ public class Coupon {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getCompanyID() {
         return companyID;
     }
 
-    public void setCompanyID(int companyID) {
-        this.companyID = companyID;
+    public void setCompanyID(int companyId) {// CHECK IF needed
+        this.companyID = companyId;
     }
 
     public Category getCategory() {
@@ -53,12 +52,20 @@ public class Coupon {
 
     public void setCategory(Category category) {
         for (Category item : Category.values()) {
-            if (item == category) {
+            if (item.VALUE == category.VALUE) {
                 this.category = category;
                 return;
             }
         }
         this.category = category;
+    }
+
+    public int getCategoryIndex() {
+        return categoryIndex;
+    }
+
+    public void setCategoryIndex(int categoryIndex) {
+        this.categoryIndex = categoryIndex;
     }
 
     public String getTitle() {
@@ -98,6 +105,10 @@ public class Coupon {
     }
 
     public void setAmount(int amount) {
+        if (amount < 0) {
+            this.amount = 0;
+            return;
+        }
         this.amount = amount;
     }
 
@@ -106,6 +117,10 @@ public class Coupon {
     }
 
     public void setPrice(double price) {
+        if (price < 0) {
+            this.price = 0;
+            return;
+        }
         this.price = price;
     }
 
@@ -119,7 +134,7 @@ public class Coupon {
 
     @Override
     public String toString() {
-        return "Coupon{" +
+        return "Coupon {" +
                 "ID = " + id +
                 ", Company ID = " + companyID +
                 ", Category = " + category +
