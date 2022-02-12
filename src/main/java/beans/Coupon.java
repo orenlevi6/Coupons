@@ -27,7 +27,6 @@ public class Coupon {
         this.amount = amount;
         this.price = price;
         this.image = image;
-        this.categoryIndex = this.category.VALUE;
     }
 
     public Coupon() {
