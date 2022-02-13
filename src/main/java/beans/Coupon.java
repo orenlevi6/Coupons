@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Coupon {
     private int id;
-    private int companyID;
+    private int companyId;
     private Category category;
     private String title;
     private String description;
@@ -15,10 +15,10 @@ public class Coupon {
     private String image;
     private int categoryIndex;
 
-    public Coupon(int id, int companyID, int categoryIndex, String title,
+    public Coupon(int id, int companyId, int categoryIndex, String title,
                   String description, Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
-        this.companyID = companyID;
+        this.companyId = companyId;
         this.category = Category.values()[categoryIndex];
         this.title = title;
         this.description = description;
@@ -30,19 +30,19 @@ public class Coupon {
     }
 
     public Coupon() {
-
     }
 
     public int getId() {
         return id;
     }
 
-    public int getCompanyID() {
-        return companyID;
+
+    public int getCompanyId() {
+        return companyId;
     }
 
-    public void setCompanyID(int companyId) {// CHECK IF needed
-        this.companyID = companyId;
+    public void setCompanyId(int companyId) {// CHECK IF needed
+        this.companyId = companyId;
     }
 
     public Category getCategory() {
@@ -105,6 +105,7 @@ public class Coupon {
 
     public void setAmount(int amount) {
         if (amount < 0) {
+            System.out.println("Invalid value, amount was set to 0");
             this.amount = 0;
             return;
         }
@@ -117,7 +118,8 @@ public class Coupon {
 
     public void setPrice(double price) {
         if (price < 0) {
-            this.price = 0;
+            System.out.println("Invalid value, price was set to 0.0");
+            this.price = 0.0;
             return;
         }
         this.price = price;
@@ -135,7 +137,7 @@ public class Coupon {
     public String toString() {
         return "Coupon {" +
                 "ID = " + id +
-                ", Company ID = " + companyID +
+                ", Company ID = " + companyId +
                 ", Category = " + category +
                 ", Title = '" + title + '\'' +
                 ", Description = '" + description + '\'' +

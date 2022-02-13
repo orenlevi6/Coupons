@@ -1,25 +1,27 @@
 package beans;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Company {
-    private final int ID;
+    private int id;
     private String name;
     private String email;
     private String password;
-    private List<Coupon> coupons;
+    private ArrayList<Coupon> coupons;
 
-    public Company(int ID, String name, String email, String password) {
-        this.ID = ID;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.coupons = new ArrayList<>();
+    public Company(int id, String name, String email, String password) {
+        this.id = id;
+        setName(name);
+        setEmail(email);
+        setPassword(password);
+        //setCoupons(coupons);
     }
 
-    public int getID() {
-        return ID;
+    public Company() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -46,23 +48,36 @@ public class Company {
         this.password = password;
     }
 
-    public List<Coupon> getCoupons() {
+    public ArrayList<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(List<Coupon> coupons) {
+    public void setCoupons(ArrayList<Coupon> coupons) {
         this.coupons = coupons;
     }
 
     @Override
     public String toString() {
-        return "Company{" +
-                "ID = " + ID +
-                ", Name = '" + name + '\'' +
-                ", Email = '" + email + '\'' +
-                ", Password = '" + password + '\'' +
-                ", Coupons = " + coupons +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("id: ");
+        sb.append(this.id);
+        sb.append(" name: ");
+        sb.append(this.name);
+        sb.append(" email: ");
+        sb.append(this.email);
+        // sb.append(" password: ");
+        // sb.append(this.password);
+        sb.append(" coupons: ");
+        sb.append(this.coupons);
+        return sb.toString();
+       /* return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", coupons=" + coupons +
+                '}';*/
+
     }
 
 }

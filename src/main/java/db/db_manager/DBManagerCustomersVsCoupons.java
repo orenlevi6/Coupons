@@ -2,7 +2,7 @@ package db.db_manager;
 
 public class DBManagerCustomersVsCoupons {
 
-    //Table
+    //Tables
     public static final String CREATE_CUSTOMERS_VS_COUPONS_TABLE =
             "CREATE TABLE IF NOT EXISTS `coupons`.`customers_vs_coupons` (" +
                     "  `customer_id` INT NOT NULL," +

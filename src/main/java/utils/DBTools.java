@@ -2,21 +2,13 @@ package utils;
 
 import db.ConnectionPool;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-
+import java.sql.*;
 import java.util.Map;
 
 public class DBTools {
-
     /**
-     * runQuery method -
-     * return boolean to know if client succeeded or not, used to create tables
+     * runQuery method return boolean to know if client succeeded or not, used to create tables
      */
-
     public static boolean runQuery(String sql) {
         Connection connection = null;
         try {
@@ -32,7 +24,7 @@ public class DBTools {
         }
     }
 
-    // Method Overloading
+    // overloading
     public static boolean runQuery(String sql, Map<Integer, Object> parameters) {
         Connection connection = null;
         try {
@@ -107,7 +99,8 @@ public class DBTools {
 
     }
 
-    // Method Overloading
+    // overloading
+    // למה צריך?
     public static ResultSet runQueryForResult(String sql, int id) {
         Connection connection = null;
         try {

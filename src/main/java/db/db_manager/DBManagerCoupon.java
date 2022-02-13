@@ -3,7 +3,6 @@ package db.db_manager;
 public class DBManagerCoupon {
 
     //Tables
-
     public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`coupons` (" +
             "  `id` INT NOT NULL," +
             "  `company_id` INT NULL," +
@@ -38,11 +37,12 @@ public class DBManagerCoupon {
     public static final String UPDATE_COUPON = " UPDATE `coupons`.`coupons` " +
             " SET company_id=?, category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=?" +
             " WHERE id=?";
-    //read sql
+
+    //Read SQL
     public static final String GET_ALL_COUPONS = " SELECT * FROM  `coupons`.`coupons` ";
     public static final String GET_COUPON_BY_ID = " SELECT * FROM  `coupons`.`coupons` WHERE id=? ";
 
-    // more read sql scrip for client use...
+    // More read SQL scripts for client use...
     public static final String GET_BY_COMPANY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? ";
     public static final String GET_BY_CATEGORY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE category_id=? ";
     public static final String GET_BY_DESCRIPTION = "  SELECT * FROM  `coupons`.`coupons` WHERE description=? ";
