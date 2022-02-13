@@ -59,19 +59,20 @@ public class Company {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("ID = ");
-        sb.append(this.id);
-        sb.append(", Name = ");
-        sb.append(this.name);
-        sb.append(", Email = ");
-        sb.append(this.email);
-        // sb.append(" password: ");
-        // sb.append(this.password);
-        sb.append(", Coupons = ");
-        sb.append(this.Coupons);
-        return sb.toString();
+        StringBuilder builder = new StringBuilder();
 
+        builder.append("ID = ");
+        builder.append(this.id);
+        builder.append(", Name = ");
+        builder.append(this.name);
+        builder.append(", Email = ");
+        builder.append(this.email);
+        // builder.append(" password: ");
+        // builder.append(this.password);
+        builder.append(", Coupons = ");
+        builder.append(this.Coupons);
+
+        return builder.toString();
     }
 
 }

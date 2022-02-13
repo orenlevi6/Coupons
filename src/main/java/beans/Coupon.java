@@ -135,18 +135,30 @@ public class Coupon {
 
     @Override
     public String toString() {
-        return "Coupon {" +
-                "ID = " + id +
-                ", Company ID = " + companyId +
-                ", Category = " + category +
-                ", Title = '" + title + '\'' +
-                ", Description = '" + description + '\'' +
-                ", Start Date = " + startDate +
-                ", End Date = " + endDate +
-                ", Amount = " + amount +
-                ", Price = " + price +
-                ", Image = '" + image + '\'' +
-                '}';
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("ID = ");
+        builder.append(id);
+        builder.append(", Company ID = ");
+        builder.append(companyId);
+        builder.append(", Category = ");
+        builder.append(category);
+        builder.append(", Title = '");
+        builder.append(title);
+        builder.append("', Description = '");
+        builder.append(description);
+        builder.append("', Start Date = ");
+        builder.append(startDate);
+        builder.append(", End Date = ");
+        builder.append(endDate);
+        builder.append(", Amount = ");
+        builder.append(amount);
+        builder.append(", Price = ");
+        builder.append(price);
+        builder.append(", Image = '");
+        builder.append(image);
+
+        return builder.toString();
     }
 
 }

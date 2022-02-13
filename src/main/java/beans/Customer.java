@@ -64,16 +64,23 @@ public class Customer {
     }
 
     @Override
-    public String toString() {
-        // TODO: 12/02/2022 show password only to certified users.
-        return "Customer {" +
-                "ID =" + id +
-                ", First Name = '" + firstName + '\'' +
-                ", Last Name = '" + lastName + '\'' +
-                ", Email = '" + email + '\'' +
-                ", Password = '" + password + '\'' +
-                ", Coupons = " + Coupons +
-                '}';
+    public String toString() { // TODO: 12/02/2022 show password only to certified users.
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("ID = ");
+        builder.append(this.id);
+        builder.append(",First Name = ");
+        builder.append(this.firstName);
+        builder.append(",Last Name = ");
+        builder.append(this.lastName);
+        builder.append(", Email = ");
+        builder.append(this.email);
+        // builder.append(" password: ");
+        // builder.append(this.password);
+        builder.append(", Coupons = ");
+        builder.append(this.Coupons);
+
+        return builder.toString();
     }
 
 }
