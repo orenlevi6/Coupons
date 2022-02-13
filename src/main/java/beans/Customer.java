@@ -1,6 +1,6 @@
 package beans;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Customer {
     private int id;
@@ -8,15 +8,18 @@ public class Customer {
     private String lastName;
     private String email;
     private String password;
-    private List<Coupon> coupons;
+    private ArrayList<Coupon> coupons;
 
-    public Customer(int id, String firstName, String lastName, String email, String password, List<Coupon> coupons) {
+    public Customer() {
+    }
+
+    public Customer(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
         this.password = password;
-        this.coupons = coupons;
+        // setCoupons(coupons);
     }
 
     public int getId() {
@@ -51,22 +54,19 @@ public class Customer {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Coupon> getCoupons() {
+    public ArrayList<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(List<Coupon> coupons) {
+    public void setCoupons(ArrayList<Coupon> coupons) {
         this.coupons = coupons;
     }
 
     @Override
     public String toString() {
+        // TODO: 12/02/2022 show password only to certified users.
         return "Customer {" +
-                "ID = " + id +
+                "ID =" + id +
                 ", First Name = '" + firstName + '\'' +
                 ", Last Name = '" + lastName + '\'' +
                 ", Email = '" + email + '\'' +
