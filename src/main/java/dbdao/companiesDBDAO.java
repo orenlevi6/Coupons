@@ -47,6 +47,7 @@ public class companiesDBDAO implements CompaniesDAO {
 
     @Override
     public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
+        //TODO : Null pointer exception problem if no companies exist
         List<Company> companies = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
@@ -66,7 +67,7 @@ public class companiesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public Company getOneCompany(int companyID) {
+    public Company getOneCompany(int companyID) { //TODO : Null pointer exception problem if id doesn't exist
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_A_COMPANY, companyID);
         Company company = null;
         try {
