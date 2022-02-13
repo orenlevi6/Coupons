@@ -1,9 +1,9 @@
 package dbdao;
 
-import Utils.DBTools;
+import utils.DBTools;
 import beans.Company;
 import dao.CompaniesDAO;
-import dbManager.DBManagerCompanies;
+import db.db_manager.DBManagerCompanies;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

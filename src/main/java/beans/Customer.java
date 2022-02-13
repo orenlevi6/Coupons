@@ -1,6 +1,7 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
     private int id;
@@ -8,7 +9,7 @@ public class Customer {
     private String lastName;
     private String email;
     private String password;
-    private ArrayList<Coupon> coupons;
+    private List<Coupon> coupons;
 
     public Customer() {
     }
@@ -19,7 +20,7 @@ public class Customer {
         setLastName(lastName);
         setEmail(email);
         this.password = password;
-        // setCoupons(coupons);
+        setCoupons(new ArrayList<>());
     }
 
     public int getId() {
@@ -54,11 +55,11 @@ public class Customer {
         return password;
     }
 
-    public ArrayList<Coupon> getCoupons() {
+    public List<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(ArrayList<Coupon> coupons) {
+    public void setCoupons(List<Coupon> coupons) {
         this.coupons = coupons;
     }
 

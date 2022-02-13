@@ -13,7 +13,7 @@ public interface CouponDAO {
 
     boolean deleteCoupon(int id);
 
-    List<Coupon> getAllCoupon(String sql, Map<Integer, Object> value);
+    List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value);
 
     Coupon getOneCoupon(int couponId);
 

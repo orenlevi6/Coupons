@@ -23,4 +23,8 @@ public class DBManagerCompanies {
 
     public static final String GET_A_COMPANY = " SELECT * FROM `coupons`.`companies` WHERE id=? ";
 
+    public static final String GET_BY_ID = "  SELECT * FROM  `coupons`.`companies` WHERE id=? ";
+    public static final String GET_BY_NAME = "  SELECT * FROM  `coupons`.`companies` WHERE name=? ";
+    public static final String GET_BY_EMAIL = "  SELECT * FROM  `coupons`.`companies` WHERE email=? ";
+
 }
