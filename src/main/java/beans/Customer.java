@@ -11,9 +11,6 @@ public class Customer {
     private String password;
     private List<Coupon> Coupons;
 
-    public Customer() {
-    }
-
     public Customer(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
         setFirstName(firstName);
@@ -21,6 +18,9 @@ public class Customer {
         setEmail(email);
         this.password = password;
         setCoupons(new ArrayList<>());
+    }
+
+    public Customer() {
     }
 
     public int getId() {
