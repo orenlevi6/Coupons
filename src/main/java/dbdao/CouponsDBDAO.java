@@ -53,7 +53,7 @@ public class CouponsDBDAO implements CouponDAO {
 
     @Override
     public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value) {
-        List<Coupon> coupons = new ArrayList<>();
+        List<Coupon> Coupons = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
             while (resultSet.next()) {
@@ -69,12 +69,12 @@ public class CouponsDBDAO implements CouponDAO {
                         resultSet.getInt("price"),
                         resultSet.getString("image")
                 );
-                coupons.add(coupon);
+                Coupons.add(coupon);
             }
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return coupons;
+        return Coupons;
     }
 
     // you also can get coupon id by getAllCoupon method

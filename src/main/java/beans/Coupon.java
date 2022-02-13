@@ -19,7 +19,7 @@ public class Coupon {
                   String description, Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
         this.companyId = companyId;
-        this.category = Category.values()[categoryIndex];
+        this.category = beans.Category.values()[categoryIndex];
         this.title = title;
         this.description = description;
         this.startDate = startDate;
@@ -45,12 +45,12 @@ public class Coupon {
         this.companyId = companyId;
     }
 
-    public Category getCategory() {
+    public beans.Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        for (Category item : Category.values()) {
+    public void setCategory(beans.Category category) {
+        for (beans.Category item : beans.Category.values()) {
             if (item.VALUE == category.VALUE) {
                 this.category = category;
                 return;

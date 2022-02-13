@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomersDBDAO implements CustomersDAO {
+public class customersDBDAO implements CustomersDAO {
 
     @Override
     public boolean isCustomerExist(String email, String password) {
@@ -92,7 +92,7 @@ public class CustomersDBDAO implements CustomersDAO {
     }
 
 
-    //generic
+    //Generic
     public Customer getOneCustomer(int customerId) {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ONE_CUSTOMER, customerId);
         Customer customer = null;
@@ -112,7 +112,7 @@ public class CustomersDBDAO implements CustomersDAO {
 
     }
 
-    //second way
+    //Second way
     public Customer getOneCustomerFromArraylist(int customerId) {
         ArrayList<Customer> allCustomers = (ArrayList<Customer>) getAllCustomers();
         for (Customer item : allCustomers) {
