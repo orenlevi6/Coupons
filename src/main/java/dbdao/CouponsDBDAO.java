@@ -52,7 +52,7 @@ public class CouponsDBDAO implements CouponDAO {
     }
 
     @Override
-    public List<Coupon> getAllCoupon(String sql, Map<Integer, Object> value) {
+    public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value) {
         List<Coupon> coupons = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
@@ -78,7 +78,8 @@ public class CouponsDBDAO implements CouponDAO {
     }
 
     // you also can get coupon id by getAllCoupon method
-    // todo:: turn this to generic method that return one coupon of any sql scrip, now its like project request
+    // TODO:: Turn this method to a generic method that return one coupon of any sql script,
+    //  currently it's like project request
     @Override
     public Coupon getOneCoupon(int couponId) {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupon.GET_COUPON_BY_ID, couponId);

@@ -26,7 +26,7 @@ public class CustomersDBDAO implements CustomersDAO {
         values.put(2, customer.getLastName());
         values.put(3, customer.getEmail());
         values.put(4, customer.getPassword());
-        return DBTools.runQuery(DBManagerCustomers.CREATE_CUSTOMERS_TABLE, values);
+        return DBTools.runQuery(DBManagerCustomers.CREATE_NEW_CUSTOMER, values);
     }
 
     @Override

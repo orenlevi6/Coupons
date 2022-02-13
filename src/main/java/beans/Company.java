@@ -1,20 +1,21 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Company {
     private int id;
     private String name;
     private String email;
     private String password;
-    private ArrayList<Coupon> coupons;
+    private List<Coupon> coupons;
 
     public Company(int id, String name, String email, String password) {
         this.id = id;
         setName(name);
         setEmail(email);
         setPassword(password);
-        //setCoupons(coupons);
+        setCoupons(new ArrayList<>());
     }
 
     public Company() {
@@ -48,36 +49,23 @@ public class Company {
         this.password = password;
     }
 
-    public ArrayList<Coupon> getCoupons() {
+    public List<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(ArrayList<Coupon> coupons) {
+    public void setCoupons(List<Coupon> coupons) {
         this.coupons = coupons;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("id: ");
-        sb.append(this.id);
-        sb.append(" name: ");
-        sb.append(this.name);
-        sb.append(" email: ");
-        sb.append(this.email);
-        // sb.append(" password: ");
-        // sb.append(this.password);
-        sb.append(" coupons: ");
-        sb.append(this.coupons);
-        return sb.toString();
-       /* return "Company{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", coupons=" + coupons +
-                '}';*/
-
+        return "Company {" +
+                "ID = " + id +
+                ", Name = '" + name + '\'' +
+                ", Email = '" + email + '\'' +
+                ", Password = '" + password + '\'' +
+                ", Coupons = " + coupons +
+                '}';
     }
 
 }

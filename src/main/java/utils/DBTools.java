@@ -24,7 +24,7 @@ public class DBTools {
         }
     }
 
-    // overloading
+    // Tal - Method Overloading
     public static boolean runQuery(String sql, Map<Integer, Object> parameters) {
         Connection connection = null;
         try {
@@ -99,8 +99,8 @@ public class DBTools {
 
     }
 
-    // overloading
-    // למה צריך?
+    // Tal - Method Overloading
+    // Omer - למה צריך?
     public static ResultSet runQueryForResult(String sql, int id) {
         Connection connection = null;
         try {

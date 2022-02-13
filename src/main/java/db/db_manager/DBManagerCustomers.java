@@ -12,7 +12,7 @@ public class DBManagerCustomers {
             "  PRIMARY KEY (`id`))";
 
     public static final String CREATE_NEW_CUSTOMER = " INSERT INTO  `coupons`.`customers` " +
-            " (`first_nam`,`last_name`,`email`,`password`) "
+            " (`first_name`,`last_name`,`email`,`password`) "
             + " VALUES ( ?, ?, ?, ?) ";
 
     public static final String DELETE_CUSTOMER_BY_ID = " DELETE FROM `coupons`.`customers` WHERE id=? ";
