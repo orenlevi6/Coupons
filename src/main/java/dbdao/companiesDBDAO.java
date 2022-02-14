@@ -23,8 +23,9 @@ public class companiesDBDAO implements CompaniesDAO {
 
         if (resultSet.next()) {
             return (resultSet.getInt(1) == 1);
+        } else {
+            return false;
         }
-        return false;
     }
 
     @Override
