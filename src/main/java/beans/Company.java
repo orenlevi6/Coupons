@@ -14,7 +14,7 @@ public class Company {
         this.id = id;
         setName(name);
         setEmail(email);
-        setPassword(password);
+        this.password = password;
         setCoupons(new ArrayList<>());
     }
 
@@ -43,10 +43,6 @@ public class Company {
 
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public List<Coupon> getCoupons() {
