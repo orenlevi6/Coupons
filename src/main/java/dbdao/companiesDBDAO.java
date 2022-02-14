@@ -16,7 +16,20 @@ public class companiesDBDAO implements CompaniesDAO {
 
     @Override
     public boolean isCompanyExists(String email, String password) {
-        return false;
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, email);
+        values.put(2, password);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
+
+        try {
+            if (resultSet.next()) {
+                return (resultSet.getInt(1) == 1);
+            } else {
+                return false;
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
     }
 
     @Override
