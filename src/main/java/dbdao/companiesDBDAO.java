@@ -21,11 +21,11 @@ public class companiesDBDAO implements CompaniesDAO {
         values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
 
-            if (resultSet.next()) {
-                return (resultSet.getInt(1) == 1);
-            }
-            return false;
+        if (resultSet.next()) {
+            return (resultSet.getInt(1) == 1);
         }
+        return false;
+    }
 
     @Override
     public boolean addCompany(Company company) {
