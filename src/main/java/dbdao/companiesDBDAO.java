@@ -77,7 +77,7 @@ public class companiesDBDAO implements CompaniesDAO {
 
     @Override
     public Company getOneCompany(int companyID) { //TODO : Null pointer exception problem if id doesn't exist
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_A_COMPANY, companyID);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_COMPANY_BY_ID, companyID);
         Company company = null;
         try {
             while (resultSet.next()) {

@@ -28,30 +28,33 @@ public class DBManagerCoupon {
             "    ON DELETE NO ACTION" +
             "    ON UPDATE NO ACTION)";
 
-
-    public static final String CREATE_NEW_COUPON = " INSERT INTO  `coupons`.`coupons` " +
+    //Create
+    public static final String ADD_COUPON = " INSERT INTO  `coupons`.`coupons` " +
             " ( `company_id`, `category_id` , `title`, `description`, `start_date`, `end_date` , `amount`, `price`, `image` )"
             + " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-
-    public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
+    //Update
     public static final String UPDATE_COUPON = " UPDATE `coupons`.`coupons` " +
             " SET company_id=?, category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=?" +
             " WHERE id=?";
+    //Delete
+    public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
 
-    //Read SQL
+    //Read all
     public static final String GET_ALL_COUPONS = " SELECT * FROM  `coupons`.`coupons` ";
-    public static final String GET_COUPON_BY_ID = " SELECT * FROM  `coupons`.`coupons` WHERE id=? ";
 
-    // More read SQL scripts for client use...
-    public static final String GET_BY_COMPANY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? ";
-    public static final String GET_BY_CATEGORY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE category_id=? ";
-    public static final String GET_BY_DESCRIPTION = "  SELECT * FROM  `coupons`.`coupons` WHERE description=? ";
-    public static final String GET_BY_TITLE = " SELECT * FROM  `coupons`.`coupons` WHERE title=? ";
-    public static final String GET_BY_START_DATE = " SELECT * FROM  `coupons`.`coupons` WHERE start_date=? ";
-    public static final String GET_BY_END_DATE = " SELECT * FROM  `coupons`.`coupons` WHERE end_date=? ";
-    public static final String GET_BY_AMOUNT = " SELECT * FROM  `coupons`.`coupons` WHERE amount=? ";
-    public static final String GET_BY_PRICE = " SELECT * FROM  `coupons`.`coupons` WHERE price=? ";
-    public static final String GET_BY_IMAGE = " SELECT * FROM  `coupons`.`coupons` WHERE image=? ";
+    //Read by filter
+    public static final String GET_COUPON_BY_ID = " SELECT * FROM  `coupons`.`coupons` WHERE id=? ";
+    public static final String GET_COUPON_BY_COMPANY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? ";
+    public static final String GET_COUPON_BY_CATEGORY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE category_id=? ";
+    public static final String GET_COUPON_BY_DESCRIPTION = "  SELECT * FROM  `coupons`.`coupons` WHERE description=? ";
+    public static final String GET_COUPON_BY_TITLE = " SELECT * FROM  `coupons`.`coupons` WHERE title=? ";
+    public static final String GET_COUPON_BY_START_DATE = " SELECT * FROM  `coupons`.`coupons` WHERE start_date=? ";
+    public static final String GET_COUPON_BY_END_DATE = " SELECT * FROM  `coupons`.`coupons` WHERE end_date=? ";
+    public static final String GET_COUPON_BY_AMOUNT = " SELECT * FROM  `coupons`.`coupons` WHERE amount=? ";
+    public static final String GET_COUPON_BY_PRICE = " SELECT * FROM  `coupons`.`coupons` WHERE price=? ";
+    public static final String GET_COUPON_BY_IMAGE = " SELECT * FROM  `coupons`.`coupons` WHERE image=? ";
+
+    //Read by range
     public static final String GET_PRICE_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 

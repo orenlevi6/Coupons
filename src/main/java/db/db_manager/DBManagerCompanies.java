@@ -9,23 +9,22 @@ public class DBManagerCompanies {
             "  `email` VARCHAR(45) NULL," +
             "  `password` VARCHAR(45) NULL," +
             "  PRIMARY KEY (`id`))";
-
+    //Create
     public static final String ADD_COMPANY = " INSERT INTO `coupons`.`companies` " +
             " (`name`,`email`,`password` ) " +
             " VALUES (?,?,?) ";
-
+    //Update
     public static final String UPDATE_COMPANY = " UPDATE `coupons`.`companies` " +
             " SET name=?,email=?,password=? " + " WHERE id=? ";
-
+    //Delete
     public static final String DELETE_COMPANY = " DELETE FROM `coupons`.`companies` WHERE id=? ";
-
+    //Read all
     public static final String GET_ALL_COMPANIES = " SELECT * FROM `coupons`.`companies` ";
-
-    public static final String GET_A_COMPANY = " SELECT * FROM `coupons`.`companies` WHERE id=? ";
-
-    public static final String GET_BY_ID = "  SELECT * FROM  `coupons`.`companies` WHERE id=? ";
-    public static final String GET_BY_NAME = "  SELECT * FROM  `coupons`.`companies` WHERE name=? ";
-    public static final String GET_BY_EMAIL = "  SELECT * FROM  `coupons`.`companies` WHERE email=? ";
+    //Read by filter
+    public static final String GET_COMPANY_BY_ID = "  SELECT * FROM  `coupons`.`companies` WHERE id=? ";
+    public static final String GET_COMPANY_BY_NAME = "  SELECT * FROM  `coupons`.`companies` WHERE name=? ";
+    public static final String GET_COMPANY_BY_EMAIL = "  SELECT * FROM  `coupons`.`companies` WHERE email=? ";
+    //Find company
     public static final String FIND_COMPANY = " SELECT count(*) FROM `coupons`.`companies` WHERE 'email'=? AND 'password'=? ";
 
 }

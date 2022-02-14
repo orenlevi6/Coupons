@@ -26,7 +26,7 @@ public class customersDBDAO implements CustomersDAO {
         values.put(2, customer.getLastName());
         values.put(3, customer.getEmail());
         values.put(4, customer.getPassword());
-        return DBTools.runQuery(DBManagerCustomers.CREATE_NEW_CUSTOMER, values);
+        return DBTools.runQuery(DBManagerCustomers.ADD_CUSTOMER, values);
     }
 
     @Override
@@ -44,14 +44,14 @@ public class customersDBDAO implements CustomersDAO {
     public boolean deleteCustomer(int customerId) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customerId);
-        return DBTools.runQuery(DBManagerCustomers.DELETE_CUSTOMER_BY_ID, values);
+        return DBTools.runQuery(DBManagerCustomers.DELETE_CUSTOMER, values);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
         Map<Integer, Object> values = new HashMap<>();
         List<Customer> customers = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMER, values);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMERS, values);
         Customer customer = null;
         try {
             while (resultSet.next()) {

@@ -10,18 +10,20 @@ public class DBManagerCustomers {
             "  `email` VARCHAR(45) NULL," +
             "  `password` VARCHAR(45) NULL," +
             "  PRIMARY KEY (`id`))";
-
-    public static final String CREATE_NEW_CUSTOMER = " INSERT INTO  `coupons`.`customers` " +
+    //Create
+    public static final String ADD_CUSTOMER = " INSERT INTO  `coupons`.`customers` " +
             " (`first_name`,`last_name`,`email`,`password`) "
             + " VALUES ( ?, ?, ?, ?) ";
-
-    public static final String DELETE_CUSTOMER_BY_ID = " DELETE FROM `coupons`.`customers` WHERE id=? ";
-
+    //Update
     public static final String UPDATE_CUSTOMER = "UPDATE `coupons`.`customers` " +
             "SET  first_name = ?, last_name = ?, email = ?, password = ? "
             + " WHERE id = ?";
+    //Delete
+    public static final String DELETE_CUSTOMER = " DELETE FROM `coupons`.`customers` WHERE id=? ";
 
-    public static final String GET_ALL_CUSTOMER = " SELECT * FROM  `coupons`.`customers` ";
+    //Read all
+    public static final String GET_ALL_CUSTOMERS = " SELECT * FROM  `coupons`.`customers` ";
+    //Read by filter
     public static final String GET_ONE_CUSTOMER = "SELECT * FROM `coupons`.`customers` WHERE id=?";
 
 }
