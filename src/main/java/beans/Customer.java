@@ -20,6 +20,14 @@ public class Customer {
         setCoupons(new ArrayList<>());
     }
 
+    public Customer(String firstName, String lastName, String email, String password) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        this.password = password;
+        setCoupons(new ArrayList<>());
+    }
+
     public Customer() {
     }
 

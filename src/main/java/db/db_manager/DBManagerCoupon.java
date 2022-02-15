@@ -3,7 +3,7 @@ package db.db_manager;
 public class DBManagerCoupon {
 
     //Tables
-    public static final String CREATE_COUPONS_TABLE = "CREATE TABLE `coupons`.`coupons` (" +
+    public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`coupons` (" +
             "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `company_id` INT NULL," +
             "  `category_id` INT NULL," +

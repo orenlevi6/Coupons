@@ -1,5 +1,12 @@
+import beans.Category;
+import beans.Customer;
+import dao.CustomersDAO;
 import db.db_manager.*;
+import dbdao.customersDBDAO;
 import utils.DBTools;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Run {
 
@@ -36,8 +43,24 @@ public class Run {
 //        CREATE_CUSTOMERS_VS_COUPONS_TABLE check = true;
 //        System.out.println(DBTools.runQuery(DBManagerCustomersVsCoupons.CREATE_CUSTOMERS_VS_COUPONS_TABLE));
 
-//        Add table values
-//        TODO
+//        Table checks
+//        Category Table
+//        ADD_CATEGORY check = true
+//        Map<Integer, Object> categoryValues = new HashMap<>();
+//        categoryValues.put(1, Category.FOOD.toString());
+//        categoryValues.put(1,Category.ELECTRICITY.toString());
+//        categoryValues.put(1,Category.RESTAURANT.toString());
+//        categoryValues.put(1,Category.VACATION.toString());
+//        System.out.println(DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, categoryValues));
+
+//        Customer Table
+//        ADD_CUSTOMER check = true
+//        CustomersDAO customers = new customersDBDAO();
+//        customers.addCustomer(new Customer("Oren", "Levi", "orenlevi6@gmail.com", "12345678"));
+//        UPDATE_CUSTOMER check = true (Requires customer `id`)
+//        System.out.println(customers.updateCustomer(new Customer(1,"Oren","Levi","orenlevi6@gmail.com", "12345678")));
+//        DELETE_CUSTOMER check = true
+//        System.out.println(customers.deleteCustomer(1));
 
     }
 
