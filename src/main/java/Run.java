@@ -32,7 +32,7 @@ public class Run {
 //        CREATE_CUSTOMERS_TABLE check = true
 //        System.out.println(DBTools.runQuery(DBManagerCustomers.CREATE_CUSTOMERS_TABLE));
 //        CREATE_COUPONS_TABLE check = true
-//        System.out.println(DBTools.runQuery(DBManagerCoupon.CREATE_COUPONS_TABLE));
+        System.out.println(DBTools.runQuery(DBManagerCoupon.CREATE_COUPONS_TABLE));
 //        CREATE_CUSTOMERS_VS_COUPONS_TABLE check = true;
 //        System.out.println(DBTools.runQuery(DBManagerCustomersVsCoupons.CREATE_CUSTOMERS_VS_COUPONS_TABLE));
 

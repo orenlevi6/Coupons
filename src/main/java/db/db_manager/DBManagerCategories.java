@@ -19,5 +19,4 @@ public class DBManagerCategories {
     //Read by filter
     public static final String GET_CATEGORY_BY_ID = " SELECT * FROM  `coupons`.`categories` WHERE id=? ";
 
-
 }

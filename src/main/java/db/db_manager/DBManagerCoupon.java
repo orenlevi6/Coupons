@@ -3,8 +3,8 @@ package db.db_manager;
 public class DBManagerCoupon {
 
     //Tables
-    public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`coupons` (" +
-            "  `id` INT NOT NULL," +
+    public static final String CREATE_COUPONS_TABLE = "CREATE TABLE `coupons`.`coupons` (" +
+            "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `company_id` INT NULL," +
             "  `category_id` INT NULL," +
             "  `title` VARCHAR(45) NULL," +
@@ -15,18 +15,18 @@ public class DBManagerCoupon {
             "  `price` DOUBLE NULL," +
             "  `image` VARCHAR(45) NULL," +
             "  PRIMARY KEY (`id`)," +
-            "  INDEX `id_idx` (`company_id` ASC) VISIBLE," +
-            "  INDEX `id_idx1` (`category_id` ASC) VISIBLE," +
+            "  INDEX `company_id_idx` (`company_id` ASC) VISIBLE," +
+            "  INDEX `category_id_idx` (`category_id` ASC) VISIBLE," +
             "  CONSTRAINT `company_id`" +
             "    FOREIGN KEY (`company_id`)" +
             "    REFERENCES `coupons`.`companies` (`id`)" +
-            "    ON DELETE NO ACTION" +
+            "    ON DELETE CASCADE" +
             "    ON UPDATE NO ACTION," +
             "  CONSTRAINT `category_id`" +
             "    FOREIGN KEY (`category_id`)" +
             "    REFERENCES `coupons`.`categories` (`id`)" +
-            "    ON DELETE NO ACTION" +
-            "    ON UPDATE NO ACTION)";
+            "    ON DELETE CASCADE" +
+            "    ON UPDATE NO ACTION);";
 
     //Create
     public static final String ADD_COUPON = " INSERT INTO  `coupons`.`coupons` " +
