@@ -16,7 +16,7 @@ public interface CompaniesDAO {
 
     boolean deleteCompany(int companyID);
 
-    List<Company> getAllCompanies(String sql, Map<Integer, Object> value);
+    List<Company> getAllCompanies();
 
     Company getOneCompany(int companyID);
 

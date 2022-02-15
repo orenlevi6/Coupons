@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomersDAO {
 
-    boolean isCustomerExist(String email, String password);
+    boolean isCustomerExists(String email, String password);
 
     boolean addCustomer(Customer customer);
 

@@ -55,7 +55,29 @@ public class companiesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
+    public List<Company> getAllCompanies() {
+        Map<Integer, Object> values = new HashMap<>();
+        List<Company> companies = new ArrayList<>();
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_ALL_COMPANIES, values);
+        Company company;
+        try {
+            while (resultSet.next()) {
+                company = new Company(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password")
+                );
+                companies.add(company);
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        return companies;
+    }
+
+    //Generic
+     public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
         //TODO : Null pointer exception problem if no companies exist
         List<Company> companies = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
