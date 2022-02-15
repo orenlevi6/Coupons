@@ -110,12 +110,25 @@ public class CouponsDBDAO implements CouponDAO {
 
     @Override
     public boolean addCouponPurchase(int customerId, int couponId) {
-        return false;
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customerId);
+        values.put(2, couponId);
+        return DBTools.runQuery(DBManagerCoupon.ADD_COUPON_PURCHASE, values);
+    }
+
+    @Override
+    public boolean updateCouponAmount(int couponId) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, couponId);
+        return DBTools.runQuery(DBManagerCoupon.UPDATE_COUPON_TABLE_AMOUNT, values);
     }
 
     @Override
     public boolean deleteCouponPurchase(int customerId, int couponId) {
-        return false;
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customerId);
+        values.put(2, couponId);
+        return DBTools.runQuery(DBManagerCoupon.DELETE_COUPON_PURCHASE, values);
     }
 
 }

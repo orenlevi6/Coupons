@@ -19,6 +19,8 @@ public interface CouponDAO {
 
     boolean addCouponPurchase(int customerId, int couponId);
 
+    boolean updateCouponAmount(int couponId);
+
     boolean deleteCouponPurchase(int customerId, int couponId);
 
 }

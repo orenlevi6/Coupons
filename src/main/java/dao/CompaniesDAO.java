@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface CompaniesDAO {
 
-    boolean isCompanyExists(String email, String password) throws SQLException;
+    boolean isCompanyExists(String email, String password);
 
     boolean addCompany(Company company);
 

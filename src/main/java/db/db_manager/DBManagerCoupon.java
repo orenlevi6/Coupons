@@ -58,4 +58,11 @@ public class DBManagerCoupon {
     public static final String GET_PRICE_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
+    //Coupon purchase
+    public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
+            " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";
+    public static final String UPDATE_COUPON_TABLE_AMOUNT = " UPDATE `coupons`.`coupons` SET amount=amount-1 WHERE id=? ";
+    public static final String DELETE_COUPON_PURCHASE = " DELETE FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND " +
+            " coupon_id=? ";
+
 }

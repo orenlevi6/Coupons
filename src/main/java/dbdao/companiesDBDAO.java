@@ -15,17 +15,21 @@ import java.util.Map;
 public class companiesDBDAO implements CompaniesDAO {
 
     @Override
-    public boolean isCompanyExists(String email, String password) throws SQLException {
+    public boolean isCompanyExists(String email, String password) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, email);
         values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
 
-        if (resultSet.next()) {
-            return (resultSet.getInt(1) == 1);
-        } else {
+        try {
+            if (resultSet.next()) {
+                return (resultSet.getInt(1) == 1);
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
             return false;
         }
+        return false;
     }
 
     @Override
