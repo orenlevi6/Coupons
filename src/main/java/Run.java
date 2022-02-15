@@ -1,12 +1,12 @@
-import beans.Category;
-import beans.Customer;
-import dao.CustomersDAO;
-import db.db_manager.*;
-import dbdao.customersDBDAO;
-import utils.DBTools;
+import beans.Coupon;
+import dao.CompaniesDAO;
+import dao.CouponDAO;
+import dbdao.CouponsDBDAO;
+import dbdao.companiesDBDAO;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class Run {
 
@@ -61,7 +61,37 @@ public class Run {
 //        System.out.println(customers.updateCustomer(new Customer(1,"Oren","Levi","orenlevi6@gmail.com", "12345678")));
 //        DELETE_CUSTOMER check = true
 //        System.out.println(customers.deleteCustomer(1));
+//        GET_ALL_CUSTOMERS check = true
+//        customers.getAllCustomers().forEach(System.out::println);
+//        GET_ONE_CUSTOMER check = true
+//        System.out.println(customers.getOneCustomer(3));
 
+//        Companies Table
+        CompaniesDAO companies = new companiesDBDAO();
+//        ADD_COMPANY check = true
+//        System.out.println(companies.addCompany(new Company(1,"Oren LLC", "oren@llc.co.il","12345678")));
+//        UPDATE_COMPANY check = true
+//        System.out.println(companies.updateCompany(new Company(2,"Lea INC", "lea@leainc.co.il","1234567")));
+//        DELETE_COMPANY check = true
+//        System.out.println(companies.deleteCompany(1));
+//        GET_ALL_COMPANIES check = true;
+//        Map<Integer,Object> values = new HashMap<>();
+//        companies.getAllCompanies(DBManagerCompanies.GET_ALL_COMPANIES,values).forEach(System.out::println);
+//        GET_ONE_COMPANY check = true
+//        System.out.println(companies.getOneCompany(2));
+//        IS_COMPANY_EXISTS check = false //TODO
+        try {
+            System.out.println(companies.isCompanyExists("oren@oren.com", "oren"));
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+
+//        Coupons Table
+//        CouponDAO couponDAO = new CouponsDBDAO();
+//        ADD_COUPON check = true;
+//        System.out.println(couponDAO.addCoupon(new Coupon(2, 3, 2,"BLAbla",
+//                "blabla", Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(12)),
+//                10,49.99,"image")));
     }
 
 }
