@@ -12,12 +12,12 @@ public class DBManagerCustomersVsCoupons {
                     "  CONSTRAINT `customer_id`" +
                     "    FOREIGN KEY (`customer_id`)" +
                     "    REFERENCES `coupons`.`customers` (`id`)" +
-                    "    ON DELETE NO ACTION" +
+                    "    ON DELETE CASCADE" +
                     "    ON UPDATE NO ACTION," +
                     "  CONSTRAINT `coupon_id`" +
                     "    FOREIGN KEY (`coupon_id`)" +
                     "    REFERENCES `coupons`.`coupons` (`id`)" +
-                    "    ON DELETE NO ACTION" +
+                    "    ON DELETE CASCADE" +
                     "    ON UPDATE NO ACTION)";
 
     public static final String ADD_CUSTOMERS_VS_COUPONS =
