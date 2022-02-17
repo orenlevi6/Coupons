@@ -24,6 +24,12 @@ public class DBManagerCustomers {
     //Read all
     public static final String GET_ALL_CUSTOMERS = " SELECT * FROM  `coupons`.`customers` ";
     //Read by filter
-    public static final String GET_ONE_CUSTOMER = "SELECT * FROM `coupons`.`customers` WHERE id=?";
+    public static final String GET_CUSTOMER_BY_ID = "SELECT * FROM `coupons`.`customers` WHERE id=?";
+    public static final String GET_CUSTOMERS_BY_FIRST_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? ";
+    public static final String GET_CUSTOMERS_BY_LAST_NAME = " SELECT * FROM `coupons`.`customers` WHERE last_name=? ";
+    public static final String GET_CUSTOMERS_BY_FULL_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? AND last_name=? ";
+    public static final String GET_ALL_CUSTOMER_BY_EMAIL = " SELECT * FROM `coupons`.`customers` WHERE email=? ";
+    //Find Customer
+    public static final String FIND_CUSTOMER = " SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=? AND password=? ";
 
 }

@@ -20,6 +20,4 @@ public class DBManagerCustomersVsCoupons {
                     "    ON DELETE CASCADE" +
                     "    ON UPDATE NO ACTION)";
 
-    public static final String ADD_CUSTOMERS_VS_COUPONS =
-            "INSERT INTO `coupons`.`customers_vs_coupons` (`customer_id`, `coupon_id`) VALUES ( ?, ?)";
 }

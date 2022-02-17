@@ -20,14 +20,11 @@ public class companiesDBDAO implements CompaniesDAO {
         values.put(1, email);
         values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
-
         try {
-            if (resultSet.next()) {
-                return (resultSet.getInt(1) == 1);
-            }
+            resultSet.next();
+                return (resultSet.getInt("counter") == 1);
         } catch (SQLException err) {
             System.out.println(err.getMessage());
-            return false;
         }
         return false;
     }
@@ -58,7 +55,6 @@ public class companiesDBDAO implements CompaniesDAO {
         return DBTools.runQuery(DBManagerCompanies.DELETE_COMPANY, values);
     }
 
-    @Override
     public List<Company> getAllCompanies() {
         Map<Integer, Object> values = new HashMap<>();
         List<Company> companies = new ArrayList<>();
@@ -80,7 +76,7 @@ public class companiesDBDAO implements CompaniesDAO {
         return companies;
     }
 
-    //Generic
+    @Override
      public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
         //TODO : Null pointer exception problem if no companies exist
         List<Company> companies = new ArrayList<>();

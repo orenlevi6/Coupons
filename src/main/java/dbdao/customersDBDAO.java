@@ -94,7 +94,7 @@ public class customersDBDAO implements CustomersDAO {
 
     //Generic
     public Customer getOneCustomer(int customerId) {
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ONE_CUSTOMER, customerId);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_CUSTOMER_BY_ID, customerId);
         Customer customer = null;
         try {
             while (resultSet.next()) {
