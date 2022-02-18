@@ -63,7 +63,7 @@ public class customersDBDAO implements CustomersDAO {
         Map<Integer, Object> values = new HashMap<>();
         List<Customer> customers = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMERS, values);
-        Customer customer = null;
+        Customer customer;
         try {
             while (resultSet.next()) {
                 customer = new Customer(
@@ -85,7 +85,7 @@ public class customersDBDAO implements CustomersDAO {
     public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
         List<Customer> customers = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
-        Customer customer = null;
+        Customer customer;
         try {
             while (resultSet.next()) {
                 customer = new Customer(
