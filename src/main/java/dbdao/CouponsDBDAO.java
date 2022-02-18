@@ -105,7 +105,7 @@ public class CouponsDBDAO implements CouponDAO {
     }
 
     // you also can get coupon id by getAllCoupon method
-    // TODO:: Turn this method to a generic method that return one coupon of any sql script,
+    // TODO: Turn this method to a generic method that return one coupon of any sql script,
     //  currently it's like project request
     @Override
     public Coupon getOneCoupon(int couponId) {

@@ -79,12 +79,8 @@ public class Run {
 //        companies.getAllCompanies(DBManagerCompanies.GET_ALL_COMPANIES,values).forEach(System.out::println);
 //        GET_ONE_COMPANY check = true
 //        System.out.println(companies.getOneCompany(2));
-//        IS_COMPANY_EXISTS check = false //TODO
-        try {
-            System.out.println(companies.isCompanyExists("oren@oren.com", "oren"));
-        } catch (SQLException err) {
-            System.out.println(err.getMessage());
-        }
+//        IS_COMPANY_EXISTS check = true
+//        System.out.println(companies.isCompanyExists("oren@oren.com", "oren"));
 
 //        Coupons Table
 //        CouponDAO couponDAO = new CouponsDBDAO();
@@ -92,6 +88,7 @@ public class Run {
 //        System.out.println(couponDAO.addCoupon(new Coupon(2, 3, 2,"BLAbla",
 //                "blabla", Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(12)),
 //                10,49.99,"image")));
+
     }
 
 }

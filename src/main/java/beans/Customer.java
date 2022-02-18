@@ -64,7 +64,7 @@ public class Customer {
     }
 
     @Override
-    public String toString() { // TODO: 12/02/2022 show password only to certified users.
+    public String toString() { // TODO: show password only to certified users.
         StringBuilder builder = new StringBuilder();
 
         builder.append("ID = ");
