@@ -77,6 +77,33 @@ public class CouponsDBDAO implements CouponDAO {
         return Coupons;
     }
 
+    @Override
+    public List<Coupon> getAllCoupons() {
+        Map<Integer, Object> values = new HashMap<>();
+        List<Coupon> coupons = new ArrayList<>();
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupon.GET_ALL_COUPONS, values);
+        try {
+            while (resultSet.next()) {
+                Coupon coupon = new Coupon(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("company_id"),
+                        resultSet.getInt("category_id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("description"),
+                        resultSet.getDate("start_date"),
+                        resultSet.getDate("end_date"),
+                        resultSet.getInt("amount"),
+                        resultSet.getInt("price"),
+                        resultSet.getString("image")
+                );
+                coupons.add(coupon);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return coupons;
+    }
+
     // you also can get coupon id by getAllCoupon method
     // TODO:: Turn this method to a generic method that return one coupon of any sql script,
     //  currently it's like project request

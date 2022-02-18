@@ -15,6 +15,8 @@ public interface CouponDAO {
 
     List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value);
 
+    List<Coupon> getAllCoupons();
+
     Coupon getOneCoupon(int couponId);
 
     boolean addCouponPurchase(int customerId, int couponId);

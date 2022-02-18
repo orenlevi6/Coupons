@@ -22,11 +22,27 @@ public class companiesDBDAO implements CompaniesDAO {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
         try {
             resultSet.next();
-                return (resultSet.getInt("counter") == 1);
+            return (resultSet.getInt("counter") == 1);
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public boolean isExists(String sql, Company company) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, company.getEmail());
+        values.put(2, company.getName());
+        ResultSet resultSet = DBTools.runQueryForResult(sql, values);
+        try {
+            resultSet.next();
+            return (resultSet.getInt("counter") > 0);
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        return false;
+
     }
 
     @Override
@@ -55,14 +71,13 @@ public class companiesDBDAO implements CompaniesDAO {
         return DBTools.runQuery(DBManagerCompanies.DELETE_COMPANY, values);
     }
 
-    public List<Company> getAllCompanies() {
-        Map<Integer, Object> values = new HashMap<>();
+    @Override
+    public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
         List<Company> companies = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_ALL_COMPANIES, values);
-        Company company;
+        ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
             while (resultSet.next()) {
-                company = new Company(
+                Company company = new Company(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("email"),
@@ -76,14 +91,14 @@ public class companiesDBDAO implements CompaniesDAO {
         return companies;
     }
 
-    @Override
-     public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
-        //TODO : Null pointer exception problem if no companies exist
+    public List<Company> getAllCompanies() {
+        Map<Integer, Object> values = new HashMap<>();
         List<Company> companies = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(sql, value);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_ALL_COMPANIES, values);
+        Company company;
         try {
             while (resultSet.next()) {
-                Company company = new Company(
+                company = new Company(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("email"),
@@ -115,6 +130,16 @@ public class companiesDBDAO implements CompaniesDAO {
             System.out.println(err.getMessage());
         }
         return company;
+    }
+
+    public Company getOneCompanyFromArraylist(int companyId) {
+        ArrayList<Company> allCompanies = (ArrayList<Company>) getAllCompanies();
+        for (Company item : allCompanies) {
+            if (item.getId() == companyId) {
+                return item;
+            }
+        }
+        return null;
     }
 
 }

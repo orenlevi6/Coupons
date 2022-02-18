@@ -16,6 +16,17 @@ public class customersDBDAO implements CustomersDAO {
 
     @Override
     public boolean isCustomerExists(String email, String password) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, email);
+        values.put(2, password);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.FIND_CUSTOMER, values);
+        try {
+            resultSet.next();
+            return (resultSet.getInt("counter") == 1);
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+
+        }
         return false;
     }
 
