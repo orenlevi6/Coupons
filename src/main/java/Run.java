@@ -1,15 +1,9 @@
-import beans.Coupon;
 import dao.CompaniesDAO;
 import dao.CouponDAO;
-import db.db_manager.DBManagerCoupon;
+import dao.CustomersDAO;
 import dbdao.CouponsDBDAO;
 import dbdao.companiesDBDAO;
-
-import java.sql.Date;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
+import dbdao.customersDBDAO;
 
 public class Run {
 
@@ -43,7 +37,7 @@ public class Run {
 //        System.out.println(DBTools.runQuery(DBManagerCustomers.CREATE_CUSTOMERS_TABLE));
 //        CREATE_COUPONS_TABLE check = true
 //        System.out.println(DBTools.runQuery(DBManagerCoupon.CREATE_COUPONS_TABLE));
-//        CREATE_CUSTOMERS_VS_COUPONS_TABLE check = true;
+//        CREATE_CUSTOMERS_VS_COUPONS_TABLE check = true
 //        System.out.println(DBTools.runQuery(DBManagerCustomersVsCoupons.CREATE_CUSTOMERS_VS_COUPONS_TABLE));
 
 //        Table checks
@@ -58,28 +52,33 @@ public class Run {
 
 //        Customer Table
 //        ADD_CUSTOMER check = true
-//        CustomersDAO customers = new customersDBDAO();
+        CustomersDAO customers = new customersDBDAO();
 //        customers.addCustomer(new Customer("Oren", "Levi", "orenlevi6@gmail.com", "12345678"));
 //        UPDATE_CUSTOMER check = true (Requires customer `id`)
 //        System.out.println(customers.updateCustomer(new Customer(1,"Oren","Levi","orenlevi6@gmail.com", "12345678")));
 //        DELETE_CUSTOMER check = true
 //        System.out.println(customers.deleteCustomer(1));
 //        GET_ALL_CUSTOMERS check = true
+//        Map<Integer, Object> values = new HashMap<>();
+//        customers.getAllCustomers(DBManagerCustomers.GET_ALL_CUSTOMERS,values).forEach(System.out::println);
+//        GET_ALL_CUSTOMERS check #2 = true
 //        customers.getAllCustomers().forEach(System.out::println);
 //        GET_ONE_CUSTOMER check = true
 //        System.out.println(customers.getOneCustomer(3));
 
 //        Companies Table
-//        CompaniesDAO companies = new companiesDBDAO();
+        CompaniesDAO companies = new companiesDBDAO();
 //        ADD_COMPANY check = true
 //        System.out.println(companies.addCompany(new Company(1,"Oren LLC", "oren@llc.co.il","12345678")));
 //        UPDATE_COMPANY check = true
 //        System.out.println(companies.updateCompany(new Company(2,"Lea INC", "lea@leainc.co.il","1234567")));
 //        DELETE_COMPANY check = true
 //        System.out.println(companies.deleteCompany(1));
-//        GET_ALL_COMPANIES check = true;
+//        GET_ALL_COMPANIES check = true
 //        Map<Integer,Object> values = new HashMap<>();
 //        companies.getAllCompanies(DBManagerCompanies.GET_ALL_COMPANIES,values).forEach(System.out::println);
+//        GET_ALL_COMPANIES #2 check //TODO
+//        companies.getAllCompanies();
 //        GET_ONE_COMPANY check = true
 //        System.out.println(companies.getOneCompany(2));
 //        IS_COMPANY_EXISTS check = true
