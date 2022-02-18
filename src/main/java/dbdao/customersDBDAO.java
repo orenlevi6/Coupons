@@ -58,30 +58,8 @@ public class customersDBDAO implements CustomersDAO {
         return DBTools.runQuery(DBManagerCustomers.DELETE_CUSTOMER, values);
     }
 
+    //Generic
     @Override
-    public List<Customer> getAllCustomers() {
-        Map<Integer, Object> values = new HashMap<>();
-        List<Customer> customers = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMERS, values);
-        Customer customer;
-        try {
-            while (resultSet.next()) {
-                customer = new Customer(
-                        resultSet.getInt("id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"));
-                customers.add(customer);
-            }
-        } catch (SQLException err) {
-            System.out.println(err.getMessage());
-        }
-        return customers;
-    }
-
-
-    //generic
     public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
         List<Customer> customers = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
@@ -102,6 +80,26 @@ public class customersDBDAO implements CustomersDAO {
         return customers;
     }
 
+    public List<Customer> getAllCustomers() {
+        Map<Integer, Object> values = new HashMap<>();
+        List<Customer> customers = new ArrayList<>();
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMERS, values);
+        Customer customer;
+        try {
+            while (resultSet.next()) {
+                customer = new Customer(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"));
+                customers.add(customer);
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        return customers;
+    }
 
     //Generic
     public Customer getOneCustomer(int customerId) {

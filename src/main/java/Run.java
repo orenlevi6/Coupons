@@ -1,12 +1,15 @@
 import beans.Coupon;
 import dao.CompaniesDAO;
 import dao.CouponDAO;
+import db.db_manager.DBManagerCoupon;
 import dbdao.CouponsDBDAO;
 import dbdao.companiesDBDAO;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Run {
 
@@ -67,7 +70,7 @@ public class Run {
 //        System.out.println(customers.getOneCustomer(3));
 
 //        Companies Table
-        CompaniesDAO companies = new companiesDBDAO();
+//        CompaniesDAO companies = new companiesDBDAO();
 //        ADD_COMPANY check = true
 //        System.out.println(companies.addCompany(new Company(1,"Oren LLC", "oren@llc.co.il","12345678")));
 //        UPDATE_COMPANY check = true
@@ -83,11 +86,20 @@ public class Run {
 //        System.out.println(companies.isCompanyExists("oren@oren.com", "oren"));
 
 //        Coupons Table
-//        CouponDAO couponDAO = new CouponsDBDAO();
+        CouponDAO couponDAO = new CouponsDBDAO();
 //        ADD_COUPON check = true;
 //        System.out.println(couponDAO.addCoupon(new Coupon(2, 3, 2,"BLAbla",
 //                "blabla", Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(12)),
 //                10,49.99,"image")));
+//        UPDATE_COUPON check = true;
+//        System.out.println(couponDAO.updateCoupon(new Coupon(2, 3, 2,"some title",
+//                "something", Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(12)),
+//                10,49.99,"image")));
+//        DELETE_COUPON check = true
+//        couponDAO.deleteCoupon(3);
+//        GET_ALL_COUPONS check =
+//        Map<Integer,Object> values = new HashMap<>();
+//        couponDAO.getAllCoupons(DBManagerCoupon.GET_ALL_COUPONS, values).forEach(System.out::println);
 
     }
 

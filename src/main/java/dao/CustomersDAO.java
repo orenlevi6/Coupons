@@ -3,6 +3,7 @@ package dao;
 import beans.Customer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomersDAO {
 
@@ -14,7 +15,7 @@ public interface CustomersDAO {
 
     boolean deleteCustomer(int customerId);
 
-    List<Customer> getAllCustomers();
+    List<Customer> getAllCustomers(String sql, Map<Integer, Object> values);
 
     Customer getOneCustomer(int customerId);
 

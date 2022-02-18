@@ -157,6 +157,7 @@ public class Coupon {
         builder.append(price);
         builder.append(", Image = '");
         builder.append(image);
+        builder.append('\'');
 
         return builder.toString();
     }
