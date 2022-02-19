@@ -1,9 +1,9 @@
 import dao.CompaniesDAO;
-import dao.CouponDAO;
+import dao.CouponsDAO;
 import dao.CustomersDAO;
 import dbdao.CouponsDBDAO;
-import dbdao.companiesDBDAO;
-import dbdao.customersDBDAO;
+import dbdao.CompaniesDBDAO;
+import dbdao.CustomersDBDAO;
 
 public class Run {
 
@@ -52,7 +52,7 @@ public class Run {
 
 //        Customer Table
 //        ADD_CUSTOMER check = true
-        CustomersDAO customers = new customersDBDAO();
+        CustomersDAO customers = new CustomersDBDAO();
 //        customers.addCustomer(new Customer("Oren", "Levi", "orenlevi6@gmail.com", "12345678"));
 //        UPDATE_CUSTOMER check = true (Requires customer `id`)
 //        System.out.println(customers.updateCustomer(new Customer(1,"Oren","Levi","orenlevi6@gmail.com", "12345678")));
@@ -67,7 +67,7 @@ public class Run {
 //        System.out.println(customers.getOneCustomer(3));
 
 //        Companies Table
-        CompaniesDAO companies = new companiesDBDAO();
+        CompaniesDAO companies = new CompaniesDBDAO();
 //        ADD_COMPANY check = true
 //        System.out.println(companies.addCompany(new Company(1,"Oren LLC", "oren@llc.co.il","12345678")));
 //        UPDATE_COMPANY check = true
@@ -85,7 +85,7 @@ public class Run {
 //        System.out.println(companies.isCompanyExists("oren@oren.com", "oren"));
 
 //        Coupons Table
-        CouponDAO couponDAO = new CouponsDBDAO();
+        CouponsDAO couponsDAO = new CouponsDBDAO();
 //        ADD_COUPON check = true;
 //        System.out.println(couponDAO.addCoupon(new Coupon(2, 3, 2,"BLAbla",
 //                "blabla", Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(12)),
@@ -96,7 +96,7 @@ public class Run {
 //                10,49.99,"image")));
 //        DELETE_COUPON check = true
 //        couponDAO.deleteCoupon(3);
-//        GET_ALL_COUPONS check =
+//        GET_ALL_COUPONS check = //TODO
 //        Map<Integer,Object> values = new HashMap<>();
 //        couponDAO.getAllCoupons(DBManagerCoupon.GET_ALL_COUPONS, values).forEach(System.out::println);
 

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class companiesDBDAO implements CompaniesDAO {
+public class CompaniesDBDAO implements CompaniesDAO {
 
     @Override
     public boolean isCompanyExists(String email, String password) {

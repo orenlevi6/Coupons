@@ -2,7 +2,7 @@ package dbdao;
 
 import utils.DBTools;
 import beans.Coupon;
-import dao.CouponDAO;
+import dao.CouponsDAO;
 import db.db_manager.DBManagerCoupon;
 
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CouponsDBDAO implements CouponDAO {
+public class CouponsDBDAO implements CouponsDAO {
     @Override
     public boolean addCoupon(Coupon coupon) {
         Map<Integer, Object> values = new HashMap<>();

@@ -5,7 +5,7 @@ import beans.Coupon;
 import java.util.List;
 import java.util.Map;
 
-public interface CouponDAO {
+public interface CouponsDAO {
 
     boolean addCoupon(Coupon coupon);
 
