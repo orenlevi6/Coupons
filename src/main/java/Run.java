@@ -77,7 +77,7 @@ public class Run {
 //        GET_ALL_COMPANIES check = true
 //        Map<Integer,Object> values = new HashMap<>();
 //        companies.getAllCompanies(DBManagerCompanies.GET_ALL_COMPANIES,values).forEach(System.out::println);
-//        GET_ALL_COMPANIES #2 check //TODO
+//        GET_ALL_COMPANIES #2 check = //TODO
 //        companies.getAllCompanies();
 //        GET_ONE_COMPANY check = true
 //        System.out.println(companies.getOneCompany(2));
