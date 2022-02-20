@@ -13,39 +13,55 @@ public class Coupon {
     private int amount;
     private double price;
     private String image;
-    private int categoryIndex;
 
-    public Coupon(int id, int companyId, int categoryIndex, String title,
-                  String description, Date startDate, Date endDate, int amount, double price, String image) {
+    private int categoryIndex;
+    private static int idCount = 1;
+
+    public Coupon(int id, int companyId, int categoryIndex, String title, String description,
+                  Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
-        this.companyId = companyId;
-        this.category = beans.Category.values()[categoryIndex];
-        this.title = title;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.amount = amount;
-        this.price = price;
-        this.image = image;
+        setCompanyId(companyId);
+        setCategory(Category.values()[categoryIndex]);
+        setTitle(title);
+        setDescription(description);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        setAmount(amount);
+        setPrice(price);
+        setImage(image);
+    }
+
+    public Coupon(int companyId, int categoryIndex, String title, String description,
+                  Date startDate, Date endDate, int amount, double price, String image) {
+        this.id = idCount++;
+        setCompanyId(companyId);
+        setCategory(Category.values()[categoryIndex]);
+        setTitle(title);
+        setDescription(description);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        setAmount(amount);
+        setPrice(price);
+        setImage(image);
     }
 
     public Coupon() {
+
     }
 
     public int getId() {
         return id;
     }
 
-
     public int getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(int companyId) {// CHECK IF needed
+    public void setCompanyId(int companyId) {
         this.companyId = companyId;
     }
 
-    public beans.Category getCategory() {
+    public Category getCategory() {
         return category;
     }
 
@@ -58,15 +74,6 @@ public class Coupon {
         }
         this.category = category;
     }
-
-    public int getCategoryIndex() {
-        return categoryIndex;
-    }
-
-    public void setCategoryIndex(int categoryIndex) {
-        this.categoryIndex = categoryIndex;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -124,13 +131,20 @@ public class Coupon {
         }
         this.price = price;
     }
-
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getCategoryIndex() {
+        return categoryIndex;
+    }
+
+    public void setCategoryIndex(int categoryIndex) {
+        this.categoryIndex = categoryIndex;
     }
 
     @Override

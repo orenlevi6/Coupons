@@ -9,22 +9,31 @@ public class DBManagerCompanies {
             "  `email` VARCHAR(45) NULL," +
             "  `password` VARCHAR(45) NULL," +
             "  PRIMARY KEY (`id`))";
+
     //Create
-    public static final String ADD_COMPANY = " INSERT INTO `coupons`.`companies` " +
-            " (`name`,`email`,`password` ) " +
-            " VALUES (?,?,?) ";
+    public static final String ADD_COMPANY =
+            "INSERT INTO `coupons`.`companies` (`name`,`email`,`password` ) VALUES (?,?,?) ";
+
     //Update
-    public static final String UPDATE_COMPANY = " UPDATE `coupons`.`companies` " +
-            " SET name=?,email=?,password=? " + " WHERE id=? ";
+    public static final String UPDATE_COMPANY = " UPDATE `coupons`.`companies` SET email=?,password=? WHERE id=?";
+
     //Delete
     public static final String DELETE_COMPANY = " DELETE FROM `coupons`.`companies` WHERE id=? ";
+
     //Read all
     public static final String GET_ALL_COMPANIES = " SELECT * FROM `coupons`.`companies` ";
+
     //Read by filter
     public static final String GET_COMPANY_BY_ID = "  SELECT * FROM  `coupons`.`companies` WHERE id=? ";
     public static final String GET_COMPANY_BY_NAME = "  SELECT * FROM  `coupons`.`companies` WHERE name=? ";
     public static final String GET_COMPANY_BY_EMAIL = "  SELECT * FROM  `coupons`.`companies` WHERE email=? ";
+
     //Find company
-    public static final String FIND_COMPANY = " SELECT count(*) AS counter FROM `coupons`.`companies` WHERE email=? AND password=? ";
+    public static final String FIND_COMPANY_BY_ID =
+            "SELECT count(*) AS counter FROM `coupons`.`companies` WHERE id=? ";
+    public static final String FIND_COMPANY_BY_EMAIL_AND_PASSWORD =
+            " SELECT count(*) AS counter FROM `coupons`.`companies` WHERE email=? AND password=? ";
+    public static final String FIND_COMPANY_BY_NAME_OR_EMAIL =
+            "SELECT count(*) AS counter FROM `coupons`.`companies` WHERE name=? OR email=?";
 
 }

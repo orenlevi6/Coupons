@@ -11,12 +11,23 @@ public class Customer {
     private String password;
     private List<Coupon> Coupons;
 
+    private static int idCount = 1;
+
     public Customer(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
-        this.password = password;
+        setPassword(password);
+        setCoupons(new ArrayList<>());
+    }
+
+    public Customer(String firstName, String lastName, String email, String password) {
+        this.id = idCount++;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setPassword(password);
         setCoupons(new ArrayList<>());
     }
 
@@ -55,6 +66,10 @@ public class Customer {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public List<Coupon> getCoupons() {
         return Coupons;
     }
@@ -69,14 +84,14 @@ public class Customer {
 
         builder.append("ID = ");
         builder.append(this.id);
-        builder.append(",First Name = ");
+        builder.append(", First Name = ");
         builder.append(this.firstName);
-        builder.append(",Last Name = ");
+        builder.append(", Last Name = ");
         builder.append(this.lastName);
         builder.append(", Email = ");
         builder.append(this.email);
-        // builder.append(" password: ");
-        // builder.append(this.password);
+        builder.append(" password: ");
+        builder.append(this.password);
         builder.append(", Coupons = ");
         builder.append(this.Coupons);
 

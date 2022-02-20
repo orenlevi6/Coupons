@@ -1,9 +1,9 @@
 package dbdao;
 
-import utils.DBTools;
 import beans.Company;
 import dao.CompaniesDAO;
 import db.db_manager.DBManagerCompanies;
+import utils.DBTools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,10 +19,10 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, email);
         values.put(2, password);
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY, values);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY_BY_EMAIL_AND_PASSWORD, values);
         try {
             resultSet.next();
-            return (resultSet.getInt("counter") == 1);
+            return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
@@ -46,6 +46,19 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
+    public boolean isExists(String sql, Map<Integer, Object> values) {
+        ResultSet resultSet = DBTools.runQueryForResult(sql, values);
+        try {
+            resultSet.next();
+            return (resultSet.getInt("counter") > 0);
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+            return false;
+        }
+
+    }
+
+    @Override
     public boolean addCompany(Company company) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, company.getName());
@@ -57,10 +70,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
     @Override
     public boolean updateCompany(Company company) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, company.getName());
-        values.put(2, company.getEmail());
-        values.put(3, company.getPassword());
-        values.put(4, company.getId());
+        values.put(1, company.getEmail());
+        values.put(2, company.getPassword());
+        values.put(3, company.getId());
         return DBTools.runQuery(DBManagerCompanies.UPDATE_COMPANY, values);
     }
 
@@ -91,6 +103,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         return companies;
     }
 
+    @Override
     public List<Company> getAllCompanies() {
         Map<Integer, Object> values = new HashMap<>();
         List<Company> companies = new ArrayList<>();
@@ -132,14 +145,15 @@ public class CompaniesDBDAO implements CompaniesDAO {
         return company;
     }
 
-    public Company getOneCompanyFromArraylist(int companyId) {
-        ArrayList<Company> allCompanies = (ArrayList<Company>) getAllCompanies();
-        for (Company item : allCompanies) {
-            if (item.getId() == companyId) {
-                return item;
-            }
-        }
-        return null;
-    }
+//    REDUNDANT
+//     public Company getOneCompanyFromArraylist(int companyId) {
+//        ArrayList<Company> allCompanies = (ArrayList<Company>) getAllCompanies();
+//        for (Company item : allCompanies) {
+//            if (item.getId() == companyId) {
+//                return item;
+//            }
+//        }
+//        return null;
+//    }
 
 }

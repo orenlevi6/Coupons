@@ -10,15 +10,26 @@ public class Company {
     private String password;
     private List<Coupon> coupons;
 
+    private static int idCount = 1;
+
     public Company(int id, String name, String email, String password) {
         this.id = id;
-        setName(name);
+        this.name = name;
         setEmail(email);
-        this.password = password;
+        setPassword(password);
+        setCoupons(new ArrayList<>());
+    }
+
+    public Company(String name, String email, String password) {
+        this.id = idCount++;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
         setCoupons(new ArrayList<>());
     }
 
     public Company() {
+
     }
 
     public int getId() {
@@ -27,10 +38,6 @@ public class Company {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
@@ -45,12 +52,16 @@ public class Company {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public List<Coupon> getCoupons() {
         return coupons;
     }
 
-    public void setCoupons(List<Coupon> Coupons) {
-        this.coupons = Coupons;
+    public void setCoupons(List<Coupon> coupons) {
+        this.coupons = coupons;
     }
 
     @Override
@@ -63,8 +74,8 @@ public class Company {
         builder.append(this.name);
         builder.append(", Email = ");
         builder.append(this.email);
-        // builder.append(" password: ");
-        // builder.append(this.password);
+        builder.append(" password: ");
+        builder.append(this.password);
         builder.append(", Coupons = ");
         builder.append(this.coupons);
 

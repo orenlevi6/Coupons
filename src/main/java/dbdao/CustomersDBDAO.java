@@ -1,9 +1,9 @@
 package dbdao;
 
-import utils.DBTools;
 import beans.Customer;
 import dao.CustomersDAO;
 import db.db_manager.DBManagerCustomers;
+import utils.DBTools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,15 +19,27 @@ public class CustomersDBDAO implements CustomersDAO {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, email);
         values.put(2, password);
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.FIND_CUSTOMER, values);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.FIND_CUSTOMER_BY_EMAIL_AND_PASSWORD, values);
         try {
             resultSet.next();
-            return (resultSet.getInt("counter") == 1);
+            return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
             System.out.println(err.getMessage());
 
         }
         return false;
+    }
+
+    @Override
+    public boolean isExists(String sql, Map<Integer, Object> values) {
+        ResultSet resultSet = DBTools.runQueryForResult(sql, values);
+        try {
+            resultSet.next();
+            return (resultSet.getInt("counter") > 0);
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+            return false;
+        }
     }
 
     @Override
@@ -80,6 +92,7 @@ public class CustomersDBDAO implements CustomersDAO {
         return customers;
     }
 
+    @Override
     public List<Customer> getAllCustomers() {
         Map<Integer, Object> values = new HashMap<>();
         List<Customer> customers = new ArrayList<>();

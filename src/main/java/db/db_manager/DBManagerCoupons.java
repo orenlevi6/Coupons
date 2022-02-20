@@ -1,6 +1,6 @@
 package db.db_manager;
 
-public class DBManagerCoupon {
+public class DBManagerCoupons {
 
     //Tables
     public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`coupons` (" +
@@ -34,7 +34,7 @@ public class DBManagerCoupon {
             + " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
     //Update
     public static final String UPDATE_COUPON = " UPDATE `coupons`.`coupons` " +
-            " SET company_id=?, category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=?" +
+            " SET category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=?" +
             " WHERE id=?";
     //Delete
     public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
@@ -58,6 +58,10 @@ public class DBManagerCoupon {
     public static final String GET_PRICE_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
+    //Find Coupon
+    public static final String FIND_COUPON_BY_COMPANY_ID_AND_TITLE =
+            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE company_id=? AND title=?";
+    public static final String FIND_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
     //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";

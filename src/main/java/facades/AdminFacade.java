@@ -2,11 +2,14 @@ package facades;
 
 import beans.Company;
 import beans.Customer;
+import db.db_manager.DBManagerCompanies;
+import db.db_manager.DBManagerCustomers;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdminFacade extends ClientTFacade {
+public class AdminFacade extends ClientFacade {
 
     public AdminFacade() {
     }
@@ -16,43 +19,89 @@ public class AdminFacade extends ClientTFacade {
         return super.login("admin@admin.com", "admin");
     }
 
-    public static boolean addCompany(Company company) {
+    public boolean addCompany(Company company) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, company.getName());
+        values.put(2, company.getEmail());
+        if (companiesDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_NAME_OR_EMAIL, values)) {
+            System.out.println("Company already exists");
+            return false;
+        }
         return companiesDAO.addCompany(company);
     }
 
-    public static boolean updateCompany(Company company) {
-        return companiesDAO.updateCompany(company);
+    public boolean updateCompany(Company company) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, company.getId());
+        if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+            return companiesDAO.updateCompany(company);
+        }
+        System.out.println("Company ID not found");
+        return false;
     }
 
-    public static boolean deleteCompany(int companyID) {
-        return companiesDAO.deleteCompany(companyID);
+    public boolean deleteCompany(int companyID) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, companyID);
+        if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+            return companiesDAO.deleteCompany(companyID);
+        }
+        System.out.println("Company ID not found");
+        return false;
     }
 
-    public static List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
+    public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
         return companiesDAO.getAllCompanies(sql, value);
     }
 
-    public static Company getOneCompany(int companyID) {
+    public List<Company> getAllCompanies() {
+        return companiesDAO.getAllCompanies();
+    }
+
+    public Company getOneCompany(int companyID) {
         return companiesDAO.getOneCompany(companyID);
     }
 
-    public static boolean addCustomer(Customer customer) {
+
+    public boolean addCustomer(Customer customer) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customer.getEmail());
+        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_EMAIL, values)) {
+            System.out.println("Customer already exists");
+            return false;
+        }
         return customersDAO.addCustomer(customer);
     }
 
-    public static boolean updateCustomer(Customer customer) {
-        return customersDAO.updateCustomer(customer);
+    public boolean updateCustomer(Customer customer) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customer.getId());
+        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+            return customersDAO.updateCustomer(customer);
+        }
+        System.out.println("Customer ID not found");
+        return false;
     }
 
-    public static boolean deleteCustomer(int customerId) {
-        return customersDAO.deleteCustomer(customerId);
+    public boolean deleteCustomer(int customerId) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customerId);
+        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+            return customersDAO.deleteCustomer(customerId);
+        }
+        System.out.println("Customer ID not found");
+        return false;
     }
 
-    public static List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
+    public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
         return customersDAO.getAllCustomers(sql, values);
     }
 
-    public static Customer getOneCustomer(int customerId) {
+    public List<Customer> getAllCustomers() {
+        return customersDAO.getAllCustomers();
+    }
+
+    public Customer getOneCustomer(int customerId) {
         return customersDAO.getOneCustomer(customerId);
     }
 
