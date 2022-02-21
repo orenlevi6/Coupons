@@ -1,13 +1,17 @@
 package facades;
 
 import beans.Coupon;
+import dao.CouponsDAO;
 import db.db_manager.DBManagerCoupons;
+import dbdao.CouponsDBDAO;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CompanyFacade extends ClientFacade {
+    private static CouponsDAO couponsDAO = new CouponsDBDAO();
+
     private int companyID;
 
     public CompanyFacade(int companyID) {

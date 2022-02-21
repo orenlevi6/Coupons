@@ -11,8 +11,6 @@ public class Customer {
     private String password;
     private List<Coupon> Coupons;
 
-    private static int idCount = 1;
-
     public Customer(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
         setFirstName(firstName);
@@ -23,7 +21,7 @@ public class Customer {
     }
 
     public Customer(String firstName, String lastName, String email, String password) {
-        this.id = idCount++;
+        this.id = 0;
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
@@ -32,6 +30,7 @@ public class Customer {
     }
 
     public Customer() {
+
     }
 
     public int getId() {

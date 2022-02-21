@@ -15,7 +15,6 @@ public class Coupon {
     private String image;
 
     private int categoryIndex;
-    private static int idCount = 1;
 
     public Coupon(int id, int companyId, int categoryIndex, String title, String description,
                   Date startDate, Date endDate, int amount, double price, String image) {
@@ -33,7 +32,7 @@ public class Coupon {
 
     public Coupon(int companyId, int categoryIndex, String title, String description,
                   Date startDate, Date endDate, int amount, double price, String image) {
-        this.id = idCount++;
+        this.id = 0;
         setCompanyId(companyId);
         setCategory(Category.values()[categoryIndex]);
         setTitle(title);
@@ -74,6 +73,7 @@ public class Coupon {
         }
         this.category = category;
     }
+
     public String getTitle() {
         return title;
     }
@@ -131,6 +131,7 @@ public class Coupon {
         }
         this.price = price;
     }
+
     public String getImage() {
         return image;
     }

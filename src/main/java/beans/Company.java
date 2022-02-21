@@ -10,8 +10,6 @@ public class Company {
     private String password;
     private List<Coupon> coupons;
 
-    private static int idCount = 1;
-
     public Company(int id, String name, String email, String password) {
         this.id = id;
         this.name = name;
@@ -21,7 +19,7 @@ public class Company {
     }
 
     public Company(String name, String email, String password) {
-        this.id = idCount++;
+        this.id = 0;
         this.name = name;
         setEmail(email);
         setPassword(password);

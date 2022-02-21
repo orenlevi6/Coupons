@@ -12,12 +12,6 @@ public abstract class ClientFacade {
     protected CustomersDAO customersDAO;
     protected CouponsDAO couponsDAO;
 
-    public ClientFacade() {
-        this.companiesDAO = new CompaniesDBDAO();
-        this.customersDAO = new CustomersDBDAO();
-        this.couponsDAO = new CouponsDBDAO();
-    }
-
     public boolean login(String email, String password) {
         return false;
     }
