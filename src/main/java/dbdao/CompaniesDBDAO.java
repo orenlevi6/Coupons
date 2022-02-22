@@ -32,8 +32,8 @@ public class CompaniesDBDAO implements CompaniesDAO {
     @Override
     public boolean isExists(String sql, Company company) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, company.getEmail());
-        values.put(2, company.getName());
+        values.put(1, company.getName());
+        values.put(2, company.getEmail());
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
             resultSet.next();

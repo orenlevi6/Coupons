@@ -55,13 +55,16 @@ public class DBManagerCoupons {
     public static final String GET_COUPON_BY_IMAGE = " SELECT * FROM  `coupons`.`coupons` WHERE image=? ";
 
     //Read by range
-    public static final String GET_PRICE_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE price BETWEEN ? and ? ";
+    public static final String GET_PRICE_RANGE =
+            "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
     //Find Coupon
     public static final String FIND_COUPON_BY_COMPANY_ID_AND_TITLE =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE company_id=? AND title=?";
     public static final String FIND_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
+    public static final String FIND_COUPON_BY_ID_AND_COMPANY_ID =
+            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND company_id=?";
     //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";

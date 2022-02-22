@@ -1,15 +1,12 @@
 package facades;
 
 import beans.Company;
-import beans.Coupon;
 import beans.Customer;
 import dao.CompaniesDAO;
-import dao.CouponsDAO;
 import dao.CustomersDAO;
 import db.db_manager.DBManagerCompanies;
 import db.db_manager.DBManagerCustomers;
 import dbdao.CompaniesDBDAO;
-import dbdao.CouponsDBDAO;
 import dbdao.CustomersDBDAO;
 
 import java.util.HashMap;
@@ -36,6 +33,7 @@ public class AdminFacade extends ClientFacade {
             System.out.println("Company already exists");
             return false;
         }
+        System.out.println("Company has been added");
         return companiesDAO.addCompany(company);
     }
 
@@ -43,6 +41,7 @@ public class AdminFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, company.getId());
         if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+            System.out.println("Company has been updated");
             return companiesDAO.updateCompany(company);
         }
         System.out.println("Company ID not found");
@@ -53,6 +52,7 @@ public class AdminFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, companyID);
         if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+            System.out.println("Company has been deleted");
             return companiesDAO.deleteCompany(companyID);
         }
         System.out.println("Company ID not found");
@@ -79,6 +79,7 @@ public class AdminFacade extends ClientFacade {
             System.out.println("Customer already exists");
             return false;
         }
+        System.out.println("Customer has been added");
         return customersDAO.addCustomer(customer);
     }
 
@@ -86,6 +87,7 @@ public class AdminFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customer.getId());
         if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+            System.out.println("Customer has been updated");
             return customersDAO.updateCustomer(customer);
         }
         System.out.println("Customer ID not found");
@@ -96,6 +98,7 @@ public class AdminFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customerId);
         if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+            System.out.println("Customer has been deleted");
             return customersDAO.deleteCustomer(customerId);
         }
         System.out.println("Customer ID not found");
