@@ -54,6 +54,9 @@ public class DBManagerCoupons {
     public static final String GET_COUPON_BY_PRICE = " SELECT * FROM  `coupons`.`coupons` WHERE price=? ";
     public static final String GET_COUPON_BY_IMAGE = " SELECT * FROM  `coupons`.`coupons` WHERE image=? ";
 
+    public static final String GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID =
+            "SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND category_id=?";
+
     //Read by range
     public static final String GET_PRICE_RANGE =
             "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price BETWEEN ? and ? ";
@@ -72,8 +75,9 @@ public class DBManagerCoupons {
     //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";
-    public static final String UPDATE_COUPON_TABLE_AMOUNT = " UPDATE `coupons`.`coupons` SET amount=amount-1 WHERE id=? ";
-    public static final String DELETE_COUPON_PURCHASE = " DELETE FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND " +
-            " coupon_id=? ";
+    public static final String UPDATE_COUPON_TABLE_AMOUNT =
+            " UPDATE `coupons`.`coupons` SET amount=amount-1 WHERE id=? ";
+    public static final String DELETE_COUPON_PURCHASE =
+            " DELETE FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=? ";
 
 }

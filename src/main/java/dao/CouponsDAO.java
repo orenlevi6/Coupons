@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface CouponsDAO {
 
-    boolean isExists(String sql, Map<Integer,Object> values);
+    boolean isExists(String sql, Map<Integer, Object> values);
 
     boolean addCoupon(Coupon coupon);
 

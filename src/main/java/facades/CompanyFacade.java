@@ -1,5 +1,6 @@
 package facades;
 
+import beans.Category;
 import beans.Company;
 import beans.Coupon;
 import dao.CompaniesDAO;
@@ -73,7 +74,14 @@ public class CompanyFacade extends ClientFacade {
         return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPON_BY_COMPANY_ID, values);
     }
 
-    public List<Coupon> getCompanyCoupons(double maxPrice) {
+    public List<Coupon> getCompanyCouponsByCategory(int categoryId) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1,company);
+        values.put(2,categoryId);
+        return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID,values);
+    }
+
+    public List<Coupon> getCompanyCouponsByMaxPrice(double maxPrice) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, company);
         values.put(2, 0);
