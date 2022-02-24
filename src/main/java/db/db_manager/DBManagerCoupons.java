@@ -65,6 +65,10 @@ public class DBManagerCoupons {
     public static final String FIND_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
     public static final String FIND_COUPON_BY_ID_AND_COMPANY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND company_id=?";
+    public static final String FIND_COUPON_AMOUNT_BY_ID =
+            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND amount>0";
+    public static final String CHECK_COUPON_EXPIRATION_BY_ID =
+            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)>DATE(now())";
     //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";

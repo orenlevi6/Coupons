@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 public class CompanyFacade extends ClientFacade {
+    private int companyId;
+
     private static CompaniesDAO companiesDAO = new CompaniesDBDAO();
     private static CouponsDAO couponsDAO = new CouponsDBDAO();
     private static int company;

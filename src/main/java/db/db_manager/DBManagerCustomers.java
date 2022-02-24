@@ -41,5 +41,7 @@ public class DBManagerCustomers {
             " SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=? AND password=? ";
     public static final String FIND_CUSTOMER_BY_EMAIL =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=?";
+    public static final String FIND_COUPON_PURCHASE =
+            "SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
 
 }
