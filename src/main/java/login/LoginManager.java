@@ -26,8 +26,11 @@ public class LoginManager {
         return instance;
     }
 
-//    public ClientFacade login(String email, String password, ClientType clientType) {
-//
-//    }
+    public ClientFacade login(String email, String password, ClientType clientType) {
+    switch (clientType) {
+
+    }
+        return null;
+    }
 
 }

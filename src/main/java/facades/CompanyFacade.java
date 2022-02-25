@@ -74,11 +74,11 @@ public class CompanyFacade extends ClientFacade {
         return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPON_BY_COMPANY_ID, values);
     }
 
-    public List<Coupon> getCompanyCouponsByCategory(int categoryId) {
+    public List<Coupon> getCompanyCouponsByCategory(Category category) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1,company);
-        values.put(2,categoryId);
-        return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID,values);
+        values.put(1, company);
+        values.put(2, category.VALUE);
+        return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID, values);
     }
 
     public List<Coupon> getCompanyCouponsByMaxPrice(double maxPrice) {
