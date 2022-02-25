@@ -50,4 +50,16 @@ public class DBManagerCustomers {
                     " INNER JOIN `coupons`.`customers_vs_coupons` " +
                     " ON `coupons`.`coupons`.id = `coupons`.`customers_vs_coupons`.coupon_id " +
                     " WHERE `coupons`.`customers_vs_coupons`.customer_id=? ";
+
+    public static final String FIND_CUSTOMER_COUPONS_BY_CATEGORY =
+            " SELECT * FROM `coupons`.`coupons` " +
+                    " INNER JOIN `coupons`.`customers_vs_coupons` " +
+                    " ON `coupons`.`coupons`.id = `coupons`.`customers_vs_coupons`.coupon_id " +
+                    " WHERE `coupons`.`customers_vs_coupons`.customer_id=? AND `coupons`.`coupons`.category_id=?";
+
+    public static final String FIND_CUSTOMER_COUPONS_BY_MAX_PRICE =
+            "SELECT * FROM `coupons`.`coupons` INNER JOIN `coupons`.`customers_vs_coupons` " +
+                    " ON `coupons`.`coupons`.id = `coupons`.`customers_vs_coupons`.coupon_id " +
+                    "WHERE `coupons`.`customers_vs_coupons`.customer_id=? AND `coupons`.`coupons`.price BETWEEN ? and ? ";
+
 }

@@ -66,7 +66,23 @@ public class CustomerFacade extends ClientFacade {
         return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS, values);
     }
 
+    public List<Coupon> getCustomerCouponsByCategory(int categoryId) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customer);
+        values.put(2, categoryId);
+        return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS_BY_CATEGORY, values);
+    }
+
+    public List<Coupon> getCustomerCouponsByMaxPrice(double maxPrice) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customer);
+        values.put(2, 0);
+        values.put(3, maxPrice);
+        return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS_BY_MAX_PRICE, values);
+    }
+
     public Customer getOneCustomer() {
         return customersDAO.getOneCustomer(customer);
     }
+
 }
