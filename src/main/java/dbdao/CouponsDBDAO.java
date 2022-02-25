@@ -17,6 +17,7 @@ public class CouponsDBDAO implements CouponsDAO {
     public boolean isExists(String sql, Map<Integer, Object> values) {
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -68,6 +69,7 @@ public class CouponsDBDAO implements CouponsDAO {
         List<Coupon> Coupons = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 Coupon coupon = new Coupon(
                         resultSet.getInt("id"),
@@ -95,6 +97,7 @@ public class CouponsDBDAO implements CouponsDAO {
         List<Coupon> coupons = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupons.GET_ALL_COUPONS, values);
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 Coupon coupon = new Coupon(
                         resultSet.getInt("id"),
@@ -110,20 +113,18 @@ public class CouponsDBDAO implements CouponsDAO {
                 );
                 coupons.add(coupon);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
         }
         return coupons;
     }
 
-    // you also can get coupon id by getAllCoupon method
-    // TODO: Turn this method to a generic method that return one coupon of any sql script,
-    //  currently it's like project request
     @Override
     public Coupon getOneCoupon(int couponId) {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupons.GET_COUPON_BY_ID, couponId);
         Coupon coupon = null;
         try {
+            assert resultSet != null;
             if (resultSet.next()) {
                 coupon = new Coupon(
                         resultSet.getInt("id"),

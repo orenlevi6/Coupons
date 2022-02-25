@@ -14,7 +14,7 @@ public class ConnectionPool {
     private final Stack<Connection> connections = new Stack<>();
 
     private ConnectionPool() throws SQLException {
-        System.out.println("A new instance was created...");
+        System.out.println("A new connection pool instance was created...");
         openAllConnections();
     }
 

@@ -42,6 +42,12 @@ public class DBManagerCustomers {
     public static final String FIND_CUSTOMER_BY_EMAIL =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=?";
     public static final String FIND_COUPON_PURCHASE =
-            "SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
+            " SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
 
+    //Find Coupons
+    public static final String FIND_CUSTOMER_COUPONS =
+            " SELECT * FROM `coupons`.`coupons` " +
+                    " INNER JOIN `coupons`.`customers_vs_coupons` " +
+                    " ON `coupons`.`coupons`.id = `coupons`.`customers_vs_coupons`.coupon_id " +
+                    " WHERE `coupons`.`customers_vs_coupons`.customer_id=? ";
 }

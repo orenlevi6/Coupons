@@ -10,6 +10,7 @@ import dbdao.CouponsDBDAO;
 import dbdao.CustomersDBDAO;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CustomerFacade extends ClientFacade {
@@ -57,6 +58,12 @@ public class CustomerFacade extends ClientFacade {
             return false;
         }
         return couponsDAO.updateCouponAmount(coupon.getId());
+    }
+
+    public List<Coupon> getCustomerCoupons() {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, customer);
+        return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS,values);
     }
 
     public Customer getOneCustomer() {

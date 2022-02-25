@@ -78,7 +78,7 @@ public class Customer {
     }
 
     @Override
-    public String toString() { // TODO: show password only to certified users.
+    public String toString() {
         StringBuilder builder = new StringBuilder();
 
         builder.append("ID = ");
