@@ -80,7 +80,7 @@ public class CouponsDBDAO implements CouponsDAO {
                         resultSet.getDate("start_date"),
                         resultSet.getDate("end_date"),
                         resultSet.getInt("amount"),
-                        resultSet.getInt("price"),
+                        resultSet.getDouble("price"),
                         resultSet.getString("image")
                 );
                 Coupons.add(coupon);
@@ -108,7 +108,7 @@ public class CouponsDBDAO implements CouponsDAO {
                         resultSet.getDate("start_date"),
                         resultSet.getDate("end_date"),
                         resultSet.getInt("amount"),
-                        resultSet.getInt("price"),
+                        resultSet.getDouble("price"),
                         resultSet.getString("image")
                 );
                 coupons.add(coupon);
@@ -135,7 +135,7 @@ public class CouponsDBDAO implements CouponsDAO {
                         resultSet.getDate("start_date"),
                         resultSet.getDate("end_date"),
                         resultSet.getInt("amount"),
-                        resultSet.getInt("price"),
+                        resultSet.getDouble("price"),
                         resultSet.getString("image")
                 );
 
