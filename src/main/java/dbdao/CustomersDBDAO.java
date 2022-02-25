@@ -21,6 +21,7 @@ public class CustomersDBDAO implements CustomersDAO {
         values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.FIND_CUSTOMER_BY_EMAIL_AND_PASSWORD, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -34,6 +35,7 @@ public class CustomersDBDAO implements CustomersDAO {
     public boolean isExists(String sql, Map<Integer, Object> values) {
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -77,6 +79,7 @@ public class CustomersDBDAO implements CustomersDAO {
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         Customer customer;
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 customer = new Customer(
                         resultSet.getInt("id"),
@@ -99,6 +102,7 @@ public class CustomersDBDAO implements CustomersDAO {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_ALL_CUSTOMERS, values);
         Customer customer;
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 customer = new Customer(
                         resultSet.getInt("id"),
@@ -119,6 +123,7 @@ public class CustomersDBDAO implements CustomersDAO {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_CUSTOMER_BY_ID, customerId);
         Customer customer = null;
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 customer = new Customer(
                         resultSet.getInt("id"),

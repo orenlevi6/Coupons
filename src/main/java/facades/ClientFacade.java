@@ -3,9 +3,6 @@ package facades;
 import dao.CompaniesDAO;
 import dao.CouponsDAO;
 import dao.CustomersDAO;
-import dbdao.CompaniesDBDAO;
-import dbdao.CouponsDBDAO;
-import dbdao.CustomersDBDAO;
 
 public abstract class ClientFacade {
     protected CompaniesDAO companiesDAO;

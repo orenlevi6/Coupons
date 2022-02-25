@@ -21,6 +21,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY_BY_EMAIL_AND_PASSWORD, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -36,6 +37,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         values.put(2, company.getEmail());
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -49,6 +51,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
     public boolean isExists(String sql, Map<Integer, Object> values) {
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
+            assert resultSet != null;
             resultSet.next();
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
@@ -88,6 +91,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         List<Company> companies = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 Company company = new Company(
                         resultSet.getInt("id"),
@@ -110,6 +114,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_ALL_COMPANIES, values);
         Company company;
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 company = new Company(
                         resultSet.getInt("id"),
@@ -126,10 +131,11 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public Company getOneCompany(int companyID) { //TODO : Null pointer exception problem if id doesn't exist
+    public Company getOneCompany(int companyID) {
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_COMPANY_BY_ID, companyID);
         Company company = null;
         try {
+            assert resultSet != null;
             while (resultSet.next()) {
                 company = new Company(
                         resultSet.getInt("id"),
