@@ -1,9 +1,6 @@
 package login;
 
-import db.ConnectionPool;
 import facades.ClientFacade;
-
-import java.sql.SQLException;
 
 public class LoginManager {
     private LoginManager instance = null;
