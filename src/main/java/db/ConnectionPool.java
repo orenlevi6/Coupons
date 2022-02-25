@@ -37,7 +37,7 @@ public class ConnectionPool {
     }
 
     public static ConnectionPool getInstance() {
-        //first we check that instance is null
+        //First, check that instance is null
         if (instance == null) {
             //Synchronized-critical code , makes sure that another thread will not pass here
             synchronized (ConnectionPool.class) {
