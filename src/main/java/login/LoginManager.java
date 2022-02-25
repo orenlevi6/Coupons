@@ -27,9 +27,6 @@ public class LoginManager {
     }
 
     public ClientFacade login(String email, String password, ClientType clientType) {
-    switch (clientType) {
-
-    }
         return null;
     }
 
