@@ -6,9 +6,9 @@ import facades.CompanyFacade;
 import facades.CustomerFacade;
 
 public class LoginManager {
-    private AdminFacade adminFacade = new AdminFacade();
-    private CompanyFacade companyFacade = new CompanyFacade();
-    private CustomerFacade customerFacade = new CustomerFacade();
+    private ClientFacade adminFacade = new AdminFacade();
+    private ClientFacade companyFacade = new CompanyFacade();
+    private ClientFacade customerFacade = new CustomerFacade();
 
     private static LoginManager instance = null;
 

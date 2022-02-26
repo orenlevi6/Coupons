@@ -38,6 +38,8 @@ public class DBManagerCoupons {
             " WHERE id=?";
     //Delete
     public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
+    public static final String DELETE_EXPIRED_COUPONS =
+            " DELETE FROM `coupons`.`coupons` WHERE id > 0 AND end_date < current_timestamp()";
 
     //Read all
     public static final String GET_ALL_COUPONS = " SELECT * FROM  `coupons`.`coupons` ";
@@ -71,7 +73,7 @@ public class DBManagerCoupons {
     public static final String FIND_COUPON_AMOUNT_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND amount>0";
     public static final String CHECK_COUPON_EXPIRATION_BY_ID =
-            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)>DATE(now())";
+            "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)<DATE(now())";
     //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";

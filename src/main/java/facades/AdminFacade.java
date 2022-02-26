@@ -3,10 +3,12 @@ package facades;
 import beans.Company;
 import beans.Customer;
 import dao.CompaniesDAO;
+import dao.CouponsDAO;
 import dao.CustomersDAO;
 import db.db_manager.DBManagerCompanies;
 import db.db_manager.DBManagerCustomers;
 import dbdao.CompaniesDBDAO;
+import dbdao.CouponsDBDAO;
 import dbdao.CustomersDBDAO;
 
 import java.util.HashMap;
@@ -16,6 +18,7 @@ import java.util.Map;
 public class AdminFacade extends ClientFacade {
     private static CompaniesDAO companiesDAO = new CompaniesDBDAO();
     private static CustomersDAO customersDAO = new CustomersDBDAO();
+    private static CouponsDAO couponsDAO = new CouponsDBDAO();
 
     public AdminFacade() {
     }
