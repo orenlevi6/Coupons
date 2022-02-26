@@ -25,4 +25,5 @@ public interface CompaniesDAO {
 
     Company getOneCompany(int companyID);
 
+    Company getOneCompany(String email, String password);
 }

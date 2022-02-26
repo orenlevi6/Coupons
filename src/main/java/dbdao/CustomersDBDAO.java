@@ -139,6 +139,29 @@ public class CustomersDBDAO implements CustomersDAO {
 
     }
 
+    @Override
+    public Customer getOneCustomer(String email, String password) {
+        Map<Integer,Object> values = new HashMap<>();
+        values.put(1,email);
+        values.put(2,password);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_CUSTOMERS_BY_EMAIL_AND_PASSWORD, values);
+        Customer customer = null;
+        try {
+            assert resultSet != null;
+            while (resultSet.next()) {
+                customer = new Customer(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"));
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        return customer;
+    }
+
     //Second way
     public Customer getOneCustomerFromArraylist(int customerId) {
         ArrayList<Customer> allCustomers = (ArrayList<Customer>) getAllCustomers();

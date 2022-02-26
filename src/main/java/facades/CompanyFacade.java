@@ -18,15 +18,18 @@ public class CompanyFacade extends ClientFacade {
 
     private static CompaniesDAO companiesDAO = new CompaniesDBDAO();
     private static CouponsDAO couponsDAO = new CouponsDBDAO();
-    private static int company;
 
-    public CompanyFacade(int companyID) {
-        company = companyID;
+    public CompanyFacade() {
+
     }
 
     @Override
     public boolean login(String email, String password) {
-        return super.login(email, password);
+        if (companiesDAO.isCompanyExists(email, password)) {
+            this.companyId = companiesDAO.getOneCompany(email, password).getId();
+            return true;
+        }
+        return false;
     }
 
     public boolean addCoupon(Coupon coupon) {
@@ -70,27 +73,27 @@ public class CompanyFacade extends ClientFacade {
 
     public List<Coupon> getCompanyCoupons() {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, company);
+        values.put(1, companyId);
         return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPON_BY_COMPANY_ID, values);
     }
 
     public List<Coupon> getCompanyCouponsByCategory(Category category) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, company);
+        values.put(1, companyId);
         values.put(2, category.VALUE);
         return couponsDAO.getAllCoupons(DBManagerCoupons.GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID, values);
     }
 
     public List<Coupon> getCompanyCouponsByMaxPrice(double maxPrice) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, company);
+        values.put(1, companyId);
         values.put(2, 0);
         values.put(3, maxPrice);
         return couponsDAO.getAllCoupons(DBManagerCoupons.GET_PRICE_RANGE, values);
     }
 
     public Company getCompanyDetails() {
-        return companiesDAO.getOneCompany(company);
+        return companiesDAO.getOneCompany(companyId);
     }
 
 }

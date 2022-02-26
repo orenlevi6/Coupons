@@ -151,6 +151,30 @@ public class CompaniesDBDAO implements CompaniesDAO {
         return company;
     }
 
+    @Override
+    public Company getOneCompany(String email, String password) {
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, email);
+        values.put(2, password);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.GET_COMPANY_BY_EMAIL_AND_PASSWORD, values);
+        Company company = null;
+        try {
+            assert resultSet != null;
+            while (resultSet.next()) {
+                company = new Company(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password")
+                );
+
+            }
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+        return company;
+    }
+
 //    REDUNDANT
 //     public Company getOneCompanyFromArraylist(int companyId) {
 //        ArrayList<Company> allCompanies = (ArrayList<Company>) getAllCompanies();

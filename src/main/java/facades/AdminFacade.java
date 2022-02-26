@@ -22,7 +22,7 @@ public class AdminFacade extends ClientFacade {
 
     @Override
     public boolean login(String email, String password) {
-        return super.login("admin@admin.com", "admin");
+        return email.equals("admin@admin.com") && password.equals("admin");
     }
 
     public boolean addCompany(Company company) {

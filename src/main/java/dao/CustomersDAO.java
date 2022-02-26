@@ -23,4 +23,6 @@ public interface CustomersDAO {
 
     Customer getOneCustomer(int customerId);
 
+    Customer getOneCustomer(String email, String password);
+
 }

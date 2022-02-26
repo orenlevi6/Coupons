@@ -18,15 +18,18 @@ public class CustomerFacade extends ClientFacade {
 
     private static CouponsDAO couponsDAO = new CouponsDBDAO();
     private static CustomersDAO customersDAO = new CustomersDBDAO();
-    private static int customer;
 
-    public CustomerFacade(int customerID) {
-        customer = customerID;
+    public CustomerFacade() {
+
     }
 
     @Override
     public boolean login(String email, String password) {
-        return super.login(email, password);
+        if (customersDAO.isCustomerExists(email, password)) {
+            this.customerId = customersDAO.getOneCustomer(email, password).getId();
+            return true;
+        }
+        return false;
     }
 
     public boolean purchaseCoupon(Coupon coupon) {
@@ -37,7 +40,7 @@ public class CustomerFacade extends ClientFacade {
             return false;
         }
         values.clear();
-        values.put(1, customer);
+        values.put(1, customerId);
         values.put(2, coupon.getId());
         if (customersDAO.isExists(DBManagerCustomers.FIND_COUPON_PURCHASE, values)) {
             System.out.println("Customer already has this coupon");
@@ -53,7 +56,7 @@ public class CustomerFacade extends ClientFacade {
             System.out.println("Coupon has expired");
             return false;
         }
-        if (!couponsDAO.addCouponPurchase(customer, coupon.getId())) {
+        if (!couponsDAO.addCouponPurchase(customerId, coupon.getId())) {
             System.out.println("Coupon purchase went wrong");
             return false;
         }
@@ -62,27 +65,27 @@ public class CustomerFacade extends ClientFacade {
 
     public List<Coupon> getCustomerCoupons() {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customer);
+        values.put(1, customerId);
         return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS, values);
     }
 
     public List<Coupon> getCustomerCouponsByCategory(int categoryId) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customer);
+        values.put(1, customerId);
         values.put(2, categoryId);
         return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS_BY_CATEGORY, values);
     }
 
     public List<Coupon> getCustomerCouponsByMaxPrice(double maxPrice) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customer);
+        values.put(1, customerId);
         values.put(2, 0);
         values.put(3, maxPrice);
         return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS_BY_MAX_PRICE, values);
     }
 
     public Customer getOneCustomer() {
-        return customersDAO.getOneCustomer(customer);
+        return customersDAO.getOneCustomer(customerId);
     }
 
 }
