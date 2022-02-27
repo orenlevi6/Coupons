@@ -1,3 +1,5 @@
+import test.Test;
+
 public class Run {
 
     //Single line comment
@@ -15,7 +17,7 @@ public class Run {
      */
 
     public static void main(String[] args) {
-
+        Test.testAll();
     }
 
 }

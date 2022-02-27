@@ -19,7 +19,7 @@ public class Coupon {
     public Coupon(int id, int companyId, int categoryIndex, String title, String description,
                   Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
-        setCompanyId(companyId);
+        this.companyId = companyId;
         setCategory(Category.values()[categoryIndex - 1]);
         setTitle(title);
         setDescription(description);
@@ -33,7 +33,7 @@ public class Coupon {
     public Coupon(int companyId, int categoryIndex, String title, String description,
                   Date startDate, Date endDate, int amount, double price, String image) {
         this.id = 0;
-        setCompanyId(companyId);
+        this.companyId = companyId;
         setCategory(Category.values()[categoryIndex]);
         setTitle(title);
         setDescription(description);
@@ -54,10 +54,6 @@ public class Coupon {
 
     public int getCompanyId() {
         return companyId;
-    }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
     }
 
     public Category getCategory() {

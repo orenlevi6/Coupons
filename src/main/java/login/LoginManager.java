@@ -34,16 +34,19 @@ public class LoginManager {
     public ClientFacade login(String email, String password, ClientType clientType) {
         switch (clientType) {
             case ADMINISTRATOR:
-                if (adminFacade.login(email, password)){
+                if (adminFacade.login(email, password)) {
+                    System.out.println("Welcome, admin!");
                     return adminFacade;
                 }
-                    break;
+                break;
             case COMPANY:
                 if (companyFacade.login(email, password)) {
+                    System.out.println("Welcome, company!");
                     return companyFacade;
                 }
             case CUSTOMER:
                 if (customerFacade.login(email, password)) {
+                    System.out.println("Welcome, customer!");
                     return customerFacade;
                 }
             default:
