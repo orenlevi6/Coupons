@@ -15,6 +15,7 @@ public class CouponExpirationDailyJob implements Runnable {
         System.out.println("The daily job is running");
         while (isRunning) {
             DBTools.runQuery(DBManagerCoupons.DELETE_EXPIRED_COUPONS);
+            System.out.println("The daily job has finished the check");
             try {
                 Thread.sleep(1000 * 60 * 60 * 24);
             } catch (InterruptedException err) {
