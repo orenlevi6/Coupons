@@ -30,20 +30,6 @@ public class Coupon {
         setImage(image);
     }
 
-    public Coupon(int companyId, int categoryIndex, String title, String description,
-                  Date startDate, Date endDate, int amount, double price, String image) {
-        this.id = 0;
-        this.companyId = companyId;
-        setCategory(Category.values()[categoryIndex]);
-        setTitle(title);
-        setDescription(description);
-        setStartDate(startDate);
-        setEndDate(endDate);
-        setAmount(amount);
-        setPrice(price);
-        setImage(image);
-    }
-
     public Coupon() {
 
     }
@@ -52,8 +38,16 @@ public class Coupon {
         return id;
     }
 
+    public void setId() {
+        //TODO: Exception
+    }
+
     public int getCompanyId() {
         return companyId;
+    }
+
+    public void setCompanyId() {
+        //TODO: Exception
     }
 
     public Category getCategory() {
@@ -67,7 +61,7 @@ public class Coupon {
                 return;
             }
         }
-        this.category = category;
+        this.category = category; //TODO
     }
 
     public String getTitle() {

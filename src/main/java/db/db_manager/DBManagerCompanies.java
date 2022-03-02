@@ -27,15 +27,18 @@ public class DBManagerCompanies {
     public static final String GET_COMPANY_BY_ID = "  SELECT * FROM  `coupons`.`companies` WHERE id=? ";
     public static final String GET_COMPANY_BY_NAME = "  SELECT * FROM  `coupons`.`companies` WHERE name=? ";
     public static final String GET_COMPANY_BY_EMAIL = "  SELECT * FROM  `coupons`.`companies` WHERE email=? ";
+
     public static final String GET_COMPANY_BY_EMAIL_AND_PASSWORD =
             " SELECT * FROM  `coupons`.`companies` WHERE email=? AND password =? ";
 
-    //Find company
-    public static final String FIND_COMPANY_BY_ID =
+    //Count company
+    public static final String COUNT_COMPANY_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`companies` WHERE id=? ";
-    public static final String FIND_COMPANY_BY_EMAIL_AND_PASSWORD =
+    public static final String COUNT_COMPANY_BY_ID_AND_NAME =
+            "SELECT count(*) AS counter FROM `coupons`.`companies` WHERE id=? AND name=?";
+    public static final String COUNT_COMPANY_BY_EMAIL_AND_PASSWORD =
             " SELECT count(*) AS counter FROM `coupons`.`companies` WHERE email=? AND password=? ";
-    public static final String FIND_COMPANY_BY_NAME_OR_EMAIL =
+    public static final String COUNT_COMPANY_BY_NAME_OR_EMAIL =
             "SELECT count(*) AS counter FROM `coupons`.`companies` WHERE name=? OR email=?";
 
 }

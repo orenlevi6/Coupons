@@ -18,14 +18,6 @@ public class Company {
         setCoupons(new ArrayList<>());
     }
 
-    public Company(String name, String email, String password) {
-        this.id = 0;
-        this.name = name;
-        setEmail(email);
-        setPassword(password);
-        setCoupons(new ArrayList<>());
-    }
-
     public Company() {
 
     }
@@ -34,8 +26,16 @@ public class Company {
         return id;
     }
 
+    public void setId() {
+        //TODO: Exception
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName() {
+        //TODO: Exception
     }
 
     public String getEmail() {

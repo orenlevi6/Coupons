@@ -32,7 +32,7 @@ public class AdminFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, company.getName());
         values.put(2, company.getEmail());
-        if (companiesDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_NAME_OR_EMAIL, values)) {
+        if (companiesDAO.isExists(DBManagerCompanies.COUNT_COMPANY_BY_NAME_OR_EMAIL, values)) {
             System.out.println("Company already exists");
             return false;
         }
@@ -43,7 +43,8 @@ public class AdminFacade extends ClientFacade {
     public boolean updateCompany(Company company) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, company.getId());
-        if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+        values.put(2, company.getName());
+        if (customersDAO.isExists(DBManagerCompanies.COUNT_COMPANY_BY_ID_AND_NAME, values)) {
             System.out.println("Company has been updated");
             return companiesDAO.updateCompany(company);
         }
@@ -54,16 +55,12 @@ public class AdminFacade extends ClientFacade {
     public boolean deleteCompany(int companyID) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, companyID);
-        if (customersDAO.isExists(DBManagerCompanies.FIND_COMPANY_BY_ID, values)) {
+        if (customersDAO.isExists(DBManagerCompanies.COUNT_COMPANY_BY_ID, values)) {
             System.out.println("Company has been deleted");
             return companiesDAO.deleteCompany(companyID);
         }
         System.out.println("Company ID not found");
         return false;
-    }
-
-    public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
-        return companiesDAO.getAllCompanies(sql, value);
     }
 
     public List<Company> getAllCompanies() {
@@ -74,11 +71,10 @@ public class AdminFacade extends ClientFacade {
         return companiesDAO.getOneCompany(companyID);
     }
 
-
     public boolean addCustomer(Customer customer) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customer.getEmail());
-        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_EMAIL, values)) {
+        if (customersDAO.isExists(DBManagerCustomers.COUNT_CUSTOMER_BY_EMAIL, values)) {
             System.out.println("Customer already exists");
             return false;
         }
@@ -89,7 +85,7 @@ public class AdminFacade extends ClientFacade {
     public boolean updateCustomer(Customer customer) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customer.getId());
-        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+        if (customersDAO.isExists(DBManagerCustomers.COUNT_CUSTOMER_BY_ID, values)) {
             System.out.println("Customer has been updated");
             return customersDAO.updateCustomer(customer);
         }
@@ -100,16 +96,12 @@ public class AdminFacade extends ClientFacade {
     public boolean deleteCustomer(int customerId) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, customerId);
-        if (customersDAO.isExists(DBManagerCustomers.FIND_CUSTOMER_BY_ID, values)) {
+        if (customersDAO.isExists(DBManagerCustomers.COUNT_CUSTOMER_BY_ID, values)) {
             System.out.println("Customer has been deleted");
             return customersDAO.deleteCustomer(customerId);
         }
         System.out.println("Customer ID not found");
         return false;
-    }
-
-    public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
-        return customersDAO.getAllCustomers(sql, values);
     }
 
     public List<Customer> getAllCustomers() {

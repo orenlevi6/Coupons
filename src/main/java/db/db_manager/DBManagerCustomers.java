@@ -36,14 +36,14 @@ public class DBManagerCustomers {
     public static final String GET_CUSTOMERS_BY_EMAIL_AND_PASSWORD =
             " SELECT * FROM  `coupons`.`customers` WHERE email=? AND password =? ";
 
-    //Find Customer
-    public static final String FIND_CUSTOMER_BY_ID =
+    //Count Customer
+    public static final String COUNT_CUSTOMER_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE id=? ";
-    public static final String FIND_CUSTOMER_BY_EMAIL_AND_PASSWORD =
+    public static final String COUNT_CUSTOMER_BY_EMAIL_AND_PASSWORD =
             " SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=? AND password=? ";
-    public static final String FIND_CUSTOMER_BY_EMAIL =
+    public static final String COUNT_CUSTOMER_BY_EMAIL =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=?";
-    public static final String FIND_COUPON_PURCHASE =
+    public static final String COUNT_COUPON_PURCHASE =
             " SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
 
     //Find Coupons
@@ -62,6 +62,6 @@ public class DBManagerCustomers {
     public static final String FIND_CUSTOMER_COUPONS_BY_MAX_PRICE =
             "SELECT * FROM `coupons`.`coupons` INNER JOIN `coupons`.`customers_vs_coupons` " +
                     " ON `coupons`.`coupons`.id = `coupons`.`customers_vs_coupons`.coupon_id " +
-                    "WHERE `coupons`.`customers_vs_coupons`.customer_id=? AND `coupons`.`coupons`.price BETWEEN ? and ? ";
+                    "WHERE `coupons`.`customers_vs_coupons`.customer_id=? AND `coupons`.`coupons`.price BETWEEN 0 and ? ";
 
 }

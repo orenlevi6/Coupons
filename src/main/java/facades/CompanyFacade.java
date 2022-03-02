@@ -36,7 +36,7 @@ public class CompanyFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, this.companyId);
         values.put(2, coupon.getTitle());
-        if (couponsDAO.isExists(DBManagerCoupons.FIND_COUPON_BY_COMPANY_ID_AND_TITLE, values)) {
+        if (couponsDAO.isExists(DBManagerCoupons.COUNT_COUPON_BY_COMPANY_ID_AND_TITLE, values)) {
             System.out.println("Coupon already exists");
             return false;
         }
@@ -48,7 +48,7 @@ public class CompanyFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, coupon.getId());
         values.put(2, this.companyId);
-        if (couponsDAO.isExists(DBManagerCoupons.FIND_COUPON_BY_ID_AND_COMPANY_ID, values)) {
+        if (couponsDAO.isExists(DBManagerCoupons.COUNT_COUPON_BY_ID_AND_COMPANY_ID, values)) {
             System.out.println("Coupon has been updated");
             return couponsDAO.updateCoupon(coupon);
         }
@@ -60,16 +60,12 @@ public class CompanyFacade extends ClientFacade {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, id);
         values.put(2, this.companyId);
-        if (couponsDAO.isExists(DBManagerCoupons.FIND_COUPON_BY_ID_AND_COMPANY_ID, values)) {
+        if (couponsDAO.isExists(DBManagerCoupons.COUNT_COUPON_BY_ID_AND_COMPANY_ID, values)) {
             System.out.println("Coupon has been deleted");
             return couponsDAO.deleteCoupon(id);
         }
         System.out.println("Coupon not found");
         return false;
-    }
-
-    public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value) {
-        return couponsDAO.getAllCoupons(sql, value);
     }
 
     public List<Coupon> getCompanyCoupons() {

@@ -28,4 +28,5 @@ public class CouponExpirationDailyJob implements Runnable {
         System.out.println("The daily job has stopped running");
         this.isRunning = false;
     }
+
 }

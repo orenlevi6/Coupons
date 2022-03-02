@@ -19,7 +19,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, email);
         values.put(2, password);
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.FIND_COMPANY_BY_EMAIL_AND_PASSWORD, values);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCompanies.COUNT_COMPANY_BY_EMAIL_AND_PASSWORD, values);
         try {
             assert resultSet != null;
             resultSet.next();
@@ -160,7 +160,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Company company = null;
         try {
             assert resultSet != null;
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 company = new Company(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
@@ -174,16 +174,5 @@ public class CompaniesDBDAO implements CompaniesDAO {
         }
         return company;
     }
-
-//    REDUNDANT
-//     public Company getOneCompanyFromArraylist(int companyId) {
-//        ArrayList<Company> allCompanies = (ArrayList<Company>) getAllCompanies();
-//        for (Company item : allCompanies) {
-//            if (item.getId() == companyId) {
-//                return item;
-//            }
-//        }
-//        return null;
-//    }
 
 }

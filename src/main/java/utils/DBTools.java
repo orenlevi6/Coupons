@@ -99,8 +99,6 @@ public class DBTools {
 
     }
 
-    // Tal - Method Overloading
-    // Omer - למה צריך?
     public static ResultSet runQueryForResult(String sql, int id) {
         Connection connection = null;
         try {

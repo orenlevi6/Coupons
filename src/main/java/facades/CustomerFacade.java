@@ -35,20 +35,20 @@ public class CustomerFacade extends ClientFacade {
     public boolean purchaseCoupon(Coupon coupon) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, coupon.getId());
-        if (!couponsDAO.isExists(DBManagerCoupons.FIND_COUPON_BY_ID, values)) {
+        if (!couponsDAO.isExists(DBManagerCoupons.COUNT_COUPON_BY_ID, values)) {
             System.out.println("Coupon ID not found");
             return false;
         }
         values.clear();
         values.put(1, this.customerId);
         values.put(2, coupon.getId());
-        if (customersDAO.isExists(DBManagerCustomers.FIND_COUPON_PURCHASE, values)) {
+        if (customersDAO.isExists(DBManagerCustomers.COUNT_COUPON_PURCHASE, values)) {
             System.out.println("Customer already has this coupon");
             return false;
         }
         values.clear();
         values.put(1, coupon.getId());
-        if (!couponsDAO.isExists(DBManagerCoupons.FIND_COUPON_AMOUNT_BY_ID, values)) {
+        if (!couponsDAO.isExists(DBManagerCoupons.COUNT_COUPON_AMOUNT_BY_ID, values)) {
             System.out.println("This coupon is no longer available");
             return false;
         }
@@ -79,8 +79,7 @@ public class CustomerFacade extends ClientFacade {
     public List<Coupon> getCustomerCouponsByMaxPrice(double maxPrice) {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, this.customerId);
-        values.put(2, 0);
-        values.put(3, maxPrice);
+        values.put(2, maxPrice);
         return couponsDAO.getAllCoupons(DBManagerCustomers.FIND_CUSTOMER_COUPONS_BY_MAX_PRICE, values);
     }
 

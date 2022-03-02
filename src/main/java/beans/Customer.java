@@ -20,21 +20,16 @@ public class Customer {
         setCoupons(new ArrayList<>());
     }
 
-    public Customer(String firstName, String lastName, String email, String password) {
-        this.id = 0;
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-        setPassword(password);
-        setCoupons(new ArrayList<>());
-    }
-
     public Customer() {
 
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId() {
+        //TODO: Exception
     }
 
     public String getFirstName() {

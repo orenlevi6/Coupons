@@ -25,7 +25,6 @@ public class TablePrinter {
     public static List<String> noShowFields = new ArrayList<>(List.of());
 
 
-
     public static void print(Object item) {
         if (item != null) {
             if (item.getClass().isPrimitive()) {

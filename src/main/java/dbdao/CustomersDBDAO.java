@@ -19,7 +19,7 @@ public class CustomersDBDAO implements CustomersDAO {
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, email);
         values.put(2, password);
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.FIND_CUSTOMER_BY_EMAIL_AND_PASSWORD, values);
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.COUNT_CUSTOMER_BY_EMAIL_AND_PASSWORD, values);
         try {
             assert resultSet != null;
             resultSet.next();
@@ -141,9 +141,9 @@ public class CustomersDBDAO implements CustomersDAO {
 
     @Override
     public Customer getOneCustomer(String email, String password) {
-        Map<Integer,Object> values = new HashMap<>();
-        values.put(1,email);
-        values.put(2,password);
+        Map<Integer, Object> values = new HashMap<>();
+        values.put(1, email);
+        values.put(2, password);
         ResultSet resultSet = DBTools.runQueryForResult(DBManagerCustomers.GET_CUSTOMERS_BY_EMAIL_AND_PASSWORD, values);
         Customer customer = null;
         try {
@@ -160,17 +160,6 @@ public class CustomersDBDAO implements CustomersDAO {
             System.out.println(err.getMessage());
         }
         return customer;
-    }
-
-    //Second way
-    public Customer getOneCustomerFromArraylist(int customerId) {
-        ArrayList<Customer> allCustomers = (ArrayList<Customer>) getAllCustomers();
-        for (Customer item : allCustomers) {
-            if (item.getId() == customerId) {
-                return item;
-            }
-        }
-        return null;
     }
 
 }
