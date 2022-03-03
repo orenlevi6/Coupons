@@ -21,7 +21,7 @@ public class ConnectionPool {
     private void openAllConnections() throws SQLException {
         for (int counter = 0; counter < NUMBER_OF_CONNECTIONS; counter++) {
             //Creates new connection
-            Connection connection = DriverManager.getConnection(DBManager.URL, DBManager.SQL_USER, DBManager.SQL_PASS);
+            Connection connection = DriverManager.getConnection(DBManager.URL, DBManager.SQL_USER, DBManager.SQL_PASSWORD);
             //Pushes the new connection into the stack
             connections.push(connection);
         }
