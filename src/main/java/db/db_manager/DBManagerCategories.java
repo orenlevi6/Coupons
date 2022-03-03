@@ -2,7 +2,7 @@ package db.db_manager;
 
 public class DBManagerCategories {
 
-    //Tables
+    //Table
     public static final String CREATE_CATEGORIES_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`categories` (" +
             "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `name` VARCHAR(45) NULL," +
@@ -19,8 +19,5 @@ public class DBManagerCategories {
 
     //Read all
     public static final String GET_ALL_CATEGORIES = " SELECT * FROM `coupons`.`categories` ";
-
-    //Read by filter
-    public static final String GET_CATEGORY_BY_ID = " SELECT * FROM  `coupons`.`categories` WHERE id=? ";
 
 }

@@ -2,7 +2,7 @@ package db.db_manager;
 
 public class DBManagerCustomers {
 
-    //Tables
+    //Table
     public static final String CREATE_CUSTOMERS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`customers` (" +
             "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `first_name` VARCHAR(45) NULL," +
@@ -46,7 +46,7 @@ public class DBManagerCustomers {
     public static final String COUNT_COUPON_PURCHASE =
             " SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
 
-    //Find Coupons
+    //Find customer coupons
     public static final String FIND_CUSTOMER_COUPONS =
             " SELECT * FROM `coupons`.`coupons` " +
                     " INNER JOIN `coupons`.`customers_vs_coupons` " +

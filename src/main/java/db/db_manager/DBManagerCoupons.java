@@ -2,7 +2,7 @@ package db.db_manager;
 
 public class DBManagerCoupons {
 
-    //Tables
+    //Table
     public static final String CREATE_COUPONS_TABLE = "CREATE TABLE IF NOT EXISTS `coupons`.`coupons` (" +
             "  `id` INT NOT NULL AUTO_INCREMENT," +
             "  `company_id` INT NULL," +
@@ -38,6 +38,7 @@ public class DBManagerCoupons {
             " WHERE id=?";
     //Delete
     public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
+
     public static final String DELETE_EXPIRED_COUPONS =
             " DELETE FROM `coupons`.`coupons` WHERE id > 0 AND end_date < current_timestamp()";
 
@@ -64,7 +65,7 @@ public class DBManagerCoupons {
             "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
-    //Count Coupon
+    //Count coupon
     public static final String COUNT_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
     public static final String COUNT_COUPON_BY_COMPANY_ID_AND_TITLE =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE company_id=? AND title=?";
@@ -75,7 +76,7 @@ public class DBManagerCoupons {
     public static final String CHECK_COUPON_EXPIRATION_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)<DATE(now())";
 
-    //Coupon purchase
+    //Coupon purchase - Move
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";
     public static final String UPDATE_COUPON_TABLE_AMOUNT =
