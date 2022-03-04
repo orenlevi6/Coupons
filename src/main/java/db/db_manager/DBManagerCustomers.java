@@ -31,18 +31,21 @@ public class DBManagerCustomers {
     public static final String GET_CUSTOMER_BY_ID = "SELECT * FROM `coupons`.`customers` WHERE id=?";
     public static final String GET_CUSTOMERS_BY_FIRST_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? ";
     public static final String GET_CUSTOMERS_BY_LAST_NAME = " SELECT * FROM `coupons`.`customers` WHERE last_name=? ";
-    public static final String GET_CUSTOMERS_BY_FULL_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? AND last_name=? ";
     public static final String GET_CUSTOMERS_BY_EMAIL = " SELECT * FROM `coupons`.`customers` WHERE email=? ";
+
+    public static final String GET_CUSTOMERS_BY_FULL_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? AND last_name=? ";
     public static final String GET_CUSTOMERS_BY_EMAIL_AND_PASSWORD =
             " SELECT * FROM  `coupons`.`customers` WHERE email=? AND password =? ";
 
     //Count Customer
     public static final String COUNT_CUSTOMER_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE id=? ";
-    public static final String COUNT_CUSTOMER_BY_EMAIL_AND_PASSWORD =
-            " SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=? AND password=? ";
     public static final String COUNT_CUSTOMER_BY_EMAIL =
             "SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=?";
+
+    public static final String COUNT_CUSTOMER_BY_EMAIL_AND_PASSWORD =
+            " SELECT count(*) AS counter FROM `coupons`.`customers` WHERE email=? AND password=? ";
+
     public static final String COUNT_COUPON_PURCHASE =
             " SELECT count(*) AS counter FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=?";
 

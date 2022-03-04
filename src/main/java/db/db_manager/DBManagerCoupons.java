@@ -32,10 +32,12 @@ public class DBManagerCoupons {
     public static final String ADD_COUPON = " INSERT INTO  `coupons`.`coupons` " +
             " ( `company_id`, `category_id` , `title`, `description`, `start_date`, `end_date` , `amount`, `price`, `image` )"
             + " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
     //Update
     public static final String UPDATE_COUPON = " UPDATE `coupons`.`coupons` " +
             " SET category_id=?, title=?, description=?, start_date=?, end_date=?, amount=?, price=?, image=?" +
             " WHERE id=?";
+
     //Delete
     public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
 
@@ -63,7 +65,8 @@ public class DBManagerCoupons {
     //Read by range
     public static final String GET_PRICE_RANGE =
             "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price BETWEEN ? and ? ";
-    public static final String GET_AMOUNT_RANGE = "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
+    public static final String GET_AMOUNT_RANGE =
+            "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
     //Count coupon
     public static final String COUNT_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
@@ -76,7 +79,7 @@ public class DBManagerCoupons {
     public static final String CHECK_COUPON_EXPIRATION_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)<DATE(now())";
 
-    //Coupon purchase - Move
+    //Coupon purchase - Move (?)
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";
     public static final String UPDATE_COUPON_TABLE_AMOUNT =
