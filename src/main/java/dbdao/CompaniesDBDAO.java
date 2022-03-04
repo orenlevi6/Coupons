@@ -44,7 +44,6 @@ public class CompaniesDBDAO implements CompaniesDAO {
             System.out.println(err.getMessage());
         }
         return false;
-
     }
 
     @Override
@@ -58,7 +57,6 @@ public class CompaniesDBDAO implements CompaniesDAO {
             System.out.println(err.getMessage());
             return false;
         }
-
     }
 
     @Override

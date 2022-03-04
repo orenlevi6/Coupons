@@ -72,7 +72,6 @@ public class CustomersDBDAO implements CustomersDAO {
         return DBTools.runQuery(DBManagerCustomers.DELETE_CUSTOMER, values);
     }
 
-    //Generic
     @Override
     public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
         List<Customer> customers = new ArrayList<>();
@@ -136,7 +135,6 @@ public class CustomersDBDAO implements CustomersDAO {
             System.out.println(err.getMessage());
         }
         return customer;
-
     }
 
     @Override

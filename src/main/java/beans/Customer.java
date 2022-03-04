@@ -9,7 +9,7 @@ public class Customer {
     private String lastName;
     private String email;
     private String password;
-    private List<Coupon> Coupons;
+    private List<Coupon> coupons;
 
     public Customer(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
@@ -65,11 +65,11 @@ public class Customer {
     }
 
     public List<Coupon> getCoupons() {
-        return Coupons;
+        return coupons;
     }
 
     public void setCoupons(List<Coupon> Coupons) {
-        this.Coupons = Coupons;
+        this.coupons = Coupons;
     }
 
     @Override
@@ -87,7 +87,7 @@ public class Customer {
         builder.append(" password: ");
         builder.append(this.password);
         builder.append(", Coupons = ");
-        builder.append(this.Coupons);
+        builder.append(this.coupons);
 
         return builder.toString();
     }

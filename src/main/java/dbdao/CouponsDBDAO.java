@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CouponsDBDAO implements CouponsDAO {
+
     @Override
     public boolean isExists(String sql, Map<Integer, Object> values) {
         ResultSet resultSet = DBTools.runQueryForResult(sql, values);
@@ -24,7 +25,6 @@ public class CouponsDBDAO implements CouponsDAO {
             System.out.println(err.getMessage());
             return false;
         }
-
     }
 
     @Override
@@ -66,7 +66,7 @@ public class CouponsDBDAO implements CouponsDAO {
 
     @Override
     public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value) {
-        List<Coupon> Coupons = new ArrayList<>();
+        List<Coupon> coupons = new ArrayList<>();
         ResultSet resultSet = DBTools.runQueryForResult(sql, value);
         try {
             assert resultSet != null;
@@ -83,12 +83,12 @@ public class CouponsDBDAO implements CouponsDAO {
                         resultSet.getDouble("price"),
                         resultSet.getString("image")
                 );
-                Coupons.add(coupon);
+                coupons.add(coupon);
             }
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
-        return Coupons;
+        return coupons;
     }
 
     @Override
@@ -145,7 +145,6 @@ public class CouponsDBDAO implements CouponsDAO {
             return null;
         }
         return coupon;
-
     }
 
     @Override

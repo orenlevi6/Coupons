@@ -11,7 +11,7 @@ public interface CompaniesDAO {
 
     boolean isExists(String sql, Company company);
 
-    boolean isExists(String sql, Map<Integer,Object> values);
+    boolean isExists(String sql, Map<Integer, Object> values);
 
     boolean addCompany(Company company);
 
@@ -26,4 +26,5 @@ public interface CompaniesDAO {
     Company getOneCompany(int companyID);
 
     Company getOneCompany(String email, String password);
+
 }
