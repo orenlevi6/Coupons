@@ -1,5 +1,7 @@
 package beans;
 
+import exceptions.MethodNotAllowedException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,16 +28,16 @@ public class Company {
         return id;
     }
 
-    public void setId() {
-        //TODO: Exception
+    public void setId() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException("Cannot change company's ID!");
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName() {
-        //TODO: Exception
+    public void setName() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException("Cannot change company's name!");
     }
 
     public String getEmail() {

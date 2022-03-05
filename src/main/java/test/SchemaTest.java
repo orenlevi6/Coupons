@@ -2,41 +2,62 @@ package test;
 
 import beans.Category;
 import db.db_manager.*;
+import exceptions.SQLTables;
+import exceptions.TableNotCreatedException;
 import utils.DBTools;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SchemaTest {
-    public static void createSchema() {
-        System.out.println(DBTools.runQuery(DBManager.CREATE_DB));
+    public static void createSchema() throws TableNotCreatedException {
+        if (!DBTools.runQuery(DBManager.CREATE_DB)) {
+            throw new TableNotCreatedException(SQLTables.SCHEMA);
+        }
         createCategoriesTable();
-        System.out.println(DBTools.runQuery(DBManagerCompanies.CREATE_COMPANIES_TABLE));
-        System.out.println(DBTools.runQuery(DBManagerCustomers.CREATE_CUSTOMERS_TABLE));
-        System.out.println(DBTools.runQuery(DBManagerCoupons.CREATE_COUPONS_TABLE));
-        System.out.println(DBTools.runQuery(DBManagerCustomersVsCoupons.CREATE_CUSTOMERS_VS_COUPONS_TABLE));
-
+        if (!DBTools.runQuery(DBManagerCompanies.CREATE_COMPANIES_TABLE)) {
+            throw new TableNotCreatedException(SQLTables.COMPANIES);
+        }
+        if (!DBTools.runQuery(DBManagerCustomers.CREATE_CUSTOMERS_TABLE)) {
+            throw new TableNotCreatedException(SQLTables.CUSTOMERS);
+        }
+        if (!DBTools.runQuery(DBManagerCoupons.CREATE_COUPONS_TABLE)) {
+            throw new TableNotCreatedException(SQLTables.COUPONS);
+        }
+        if (!DBTools.runQuery(DBManagerCustomersVsCoupons.CREATE_CUSTOMERS_VS_COUPONS_TABLE)) {
+            throw new TableNotCreatedException(SQLTables.CUSTOMERS_VS_COUPONS);
+        }
     }
 
-    public static void createCategoriesTable() {
-        DBTools.runQuery(DBManagerCategories.CREATE_CATEGORIES_TABLE);
+    public static void createCategoriesTable() throws TableNotCreatedException {
+        if (!DBTools.runQuery(DBManagerCategories.CREATE_CATEGORIES_TABLE)) {
+            throw new TableNotCreatedException(SQLTables.CATEGORIES);
+        }
 
         Map<Integer, Object> values = new HashMap<>();
         values.put(1, Category.FOOD.toString());
-        System.out.println(DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values));
-        values.clear();
 
+        if (!DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values)) {
+            throw new TableNotCreatedException(SQLTables.CATEGORY_VALUE);
+        }
+        values.clear();
         values.put(1, Category.ELECTRICITY.toString());
-        System.out.println(DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values));
-        values.clear();
 
-        values.put(1, Category.RESTAURANT.toString());
-        System.out.println(DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values));
+        if (!DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values)) {
+            throw new TableNotCreatedException(SQLTables.CATEGORY_VALUE);
+        }
+
         values.clear();
+        values.put(1, Category.RESTAURANT.toString());
+
+        if (!DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values)) {
+            throw new TableNotCreatedException(SQLTables.CATEGORY_VALUE);
+        }
 
         values.put(1, Category.VACATION.toString());
-        System.out.println(DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values));
-
+        if (!DBTools.runQuery(DBManagerCategories.ADD_CATEGORY, values)) {
+            throw new TableNotCreatedException(SQLTables.CATEGORY_VALUE);
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package beans;
 
+import exceptions.MethodNotAllowedException;
+
 import java.sql.Date;
 
 public class Coupon {
@@ -38,16 +40,16 @@ public class Coupon {
         return id;
     }
 
-    public void setId() {
-        //TODO: Exception
+    public void setId() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException("Cannot change coupon's ID!");
     }
 
     public int getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId() {
-        //TODO: Exception
+    public void setCompanyId() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException("Cannot change coupon's Company ID!");
     }
 
     public Category getCategory() {

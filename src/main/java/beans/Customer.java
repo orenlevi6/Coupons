@@ -1,5 +1,7 @@
 package beans;
 
+import exceptions.MethodNotAllowedException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +30,8 @@ public class Customer {
         return id;
     }
 
-    public void setId() {
-        //TODO: Exception
+    public void setId() throws MethodNotAllowedException {
+        throw new MethodNotAllowedException("Cannot change customer's ID!");
     }
 
     public String getFirstName() {
