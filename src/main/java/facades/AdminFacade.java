@@ -21,6 +21,7 @@ public class AdminFacade extends ClientFacade {
     private static CouponsDAO couponsDAO = new CouponsDBDAO();
 
     public AdminFacade() {
+
     }
 
     @Override

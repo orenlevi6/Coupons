@@ -44,11 +44,13 @@ public class LoginManager {
                     System.out.println("Welcome, company!");
                     return companyFacade;
                 }
+                break;
             case CUSTOMER:
                 if (customerFacade.login(email, password)) {
                     System.out.println("Welcome, customer!");
                     return customerFacade;
                 }
+                break;
             default:
                 System.out.println("Invalid values");
                 return null;
