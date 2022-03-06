@@ -66,12 +66,13 @@ public class CustomersDBDAO implements CustomersDAO {
     }
 
     @Override
-    public boolean deleteCustomer(int customerId) {
+    public boolean deleteCustomer(int customerID) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customerId);
+        values.put(1, customerID);
         return DBTools.runQuery(DBManagerCustomers.DELETE_CUSTOMER, values);
     }
 
+    //Generic
     @Override
     public List<Customer> getAllCustomers(String sql, Map<Integer, Object> values) {
         List<Customer> customers = new ArrayList<>();
@@ -123,7 +124,7 @@ public class CustomersDBDAO implements CustomersDAO {
         Customer customer = null;
         try {
             assert resultSet != null;
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 customer = new Customer(
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),

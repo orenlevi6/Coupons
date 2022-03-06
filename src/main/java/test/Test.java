@@ -10,29 +10,29 @@ public class Test {
         SchemaTest.createSchema();
         System.out.println();
 
-//        AdminFacadeTest.testAdminFacade();
-//        System.out.println();
-//
-//        CompanyFacadeTest.testCompanyFacade1();
-//        System.out.println();
-//
-//        CompanyFacadeTest.testCompanyFacade2();
-//        System.out.println();
-//
-//        CustomerFacadeTest.testCustomerFacade();
-//        System.out.println();
-//
-//        CouponExpirationDailyJob dailyJob = new CouponExpirationDailyJob();
-//        Thread thread = new Thread(dailyJob);
-//        thread.start();
-//
-//        dailyJob.stop();
-//
-//        try {
-//            ConnectionPool.getInstance().closeAllConnections();
-//        } catch (InterruptedException err) {
-//            System.out.println(err.getMessage());
-//        }
+        AdminFacadeTest.testAdminFacade();
+        System.out.println();
+
+        CompanyFacadeTest.testCompanyFacade1();
+        System.out.println();
+
+        CompanyFacadeTest.testCompanyFacade2();
+        System.out.println();
+
+        CustomerFacadeTest.testCustomerFacade();
+        System.out.println();
+
+        CouponExpirationDailyJob dailyJob = new CouponExpirationDailyJob();
+        Thread thread = new Thread(dailyJob);
+        thread.start();
+
+        dailyJob.stop();
+
+        try {
+            ConnectionPool.getInstance().closeAllConnections();
+        } catch (InterruptedException err) {
+            System.out.println(err.getMessage());
+        }
     }
 
 }

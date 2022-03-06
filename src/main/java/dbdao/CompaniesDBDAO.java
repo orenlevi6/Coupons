@@ -55,8 +55,8 @@ public class CompaniesDBDAO implements CompaniesDAO {
             return (resultSet.getInt("counter") > 0);
         } catch (SQLException err) {
             System.out.println(err.getMessage());
-            return false;
         }
+        return false;
     }
 
     @Override
@@ -85,9 +85,9 @@ public class CompaniesDBDAO implements CompaniesDAO {
     }
 
     @Override
-    public List<Company> getAllCompanies(String sql, Map<Integer, Object> value) {
+    public List<Company> getAllCompanies(String sql, Map<Integer, Object> values) {
         List<Company> companies = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(sql, value);
+        ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
             assert resultSet != null;
             while (resultSet.next()) {
@@ -134,7 +134,7 @@ public class CompaniesDBDAO implements CompaniesDAO {
         Company company = null;
         try {
             assert resultSet != null;
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 company = new Company(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),

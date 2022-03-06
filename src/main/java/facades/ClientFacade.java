@@ -4,7 +4,7 @@ import dao.CompaniesDAO;
 import dao.CouponsDAO;
 import dao.CustomersDAO;
 
-public abstract class ClientFacade {
+public abstract class ClientFacade { //TODO?
     protected CompaniesDAO companiesDAO;
     protected CustomersDAO customersDAO;
     protected CouponsDAO couponsDAO;

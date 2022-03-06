@@ -30,7 +30,7 @@ public class CouponsDBDAO implements CouponsDAO {
     @Override
     public boolean addCoupon(Coupon coupon) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, coupon.getCompanyId());
+        values.put(1, coupon.getCompanyID());
         values.put(2, coupon.getCategory().VALUE);
         values.put(3, coupon.getTitle());
         values.put(4, coupon.getDescription());
@@ -65,9 +65,9 @@ public class CouponsDBDAO implements CouponsDAO {
     }
 
     @Override
-    public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> value) {
+    public List<Coupon> getAllCoupons(String sql, Map<Integer, Object> values) {
         List<Coupon> coupons = new ArrayList<>();
-        ResultSet resultSet = DBTools.runQueryForResult(sql, value);
+        ResultSet resultSet = DBTools.runQueryForResult(sql, values);
         try {
             assert resultSet != null;
             while (resultSet.next()) {
@@ -120,8 +120,8 @@ public class CouponsDBDAO implements CouponsDAO {
     }
 
     @Override
-    public Coupon getOneCoupon(int couponId) {
-        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupons.GET_COUPON_BY_ID, couponId);
+    public Coupon getOneCoupon(int couponID) {
+        ResultSet resultSet = DBTools.runQueryForResult(DBManagerCoupons.GET_COUPON_BY_ID, couponID);
         Coupon coupon = null;
         try {
             assert resultSet != null;
@@ -148,25 +148,25 @@ public class CouponsDBDAO implements CouponsDAO {
     }
 
     @Override
-    public boolean addCouponPurchase(int customerId, int couponId) {
+    public boolean addCouponPurchase(int customerID, int couponID) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customerId);
-        values.put(2, couponId);
+        values.put(1, customerID);
+        values.put(2, couponID);
         return DBTools.runQuery(DBManagerCoupons.ADD_COUPON_PURCHASE, values);
     }
 
     @Override
-    public boolean updateCouponAmount(int couponId) {
+    public boolean updateCouponAmount(int couponID) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, couponId);
+        values.put(1, couponID);
         return DBTools.runQuery(DBManagerCoupons.UPDATE_COUPON_TABLE_AMOUNT, values);
     }
 
     @Override
-    public boolean deleteCouponPurchase(int customerId, int couponId) {
+    public boolean deleteCouponPurchase(int customerID, int couponID) {
         Map<Integer, Object> values = new HashMap<>();
-        values.put(1, customerId);
-        values.put(2, couponId);
+        values.put(1, customerID);
+        values.put(2, couponID);
         return DBTools.runQuery(DBManagerCoupons.DELETE_COUPON_PURCHASE, values);
     }
 

@@ -61,10 +61,10 @@ public class DBManagerCoupons {
 
     public static final String GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID =
             "SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND category_id=?";
+    public static final String GET_COUPON_BY_COMPANY_ID_AND_MAX_PRICE =
+            "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price<=? ";
 
     //Read by range
-    public static final String GET_PRICE_RANGE =
-            "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price BETWEEN ? and ? ";
     public static final String GET_AMOUNT_RANGE =
             "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 

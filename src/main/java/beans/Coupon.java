@@ -6,7 +6,7 @@ import java.sql.Date;
 
 public class Coupon {
     private int id;
-    private int companyId;
+    private int companyID;
     private Category category;
     private String title;
     private String description;
@@ -18,10 +18,10 @@ public class Coupon {
 
     private int categoryIndex;
 
-    public Coupon(int id, int companyId, int categoryIndex, String title, String description,
+    public Coupon(int id, int companyID, int categoryIndex, String title, String description,
                   Date startDate, Date endDate, int amount, double price, String image) {
         this.id = id;
-        this.companyId = companyId;
+        this.companyID = companyID;
         setCategory(Category.values()[categoryIndex - 1]);
         setTitle(title);
         setDescription(description);
@@ -44,8 +44,8 @@ public class Coupon {
         throw new MethodNotAllowedException("Cannot change coupon's ID!");
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public int getCompanyID() {
+        return companyID;
     }
 
     public void setCompanyId() throws MethodNotAllowedException {
@@ -56,7 +56,7 @@ public class Coupon {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(Category category) { //private setter inside set categoryIndex (?)
         for (Category item : Category.values()) {
             if (item.VALUE == category.VALUE) {
                 this.category = category;
@@ -88,7 +88,7 @@ public class Coupon {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
-    }
+    } //TODO: Integrity check?
 
     public Date getEndDate() {
         return endDate;
@@ -96,7 +96,7 @@ public class Coupon {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
+    } //TODO: Integrity check?
 
     public int getAmount() {
         return amount;
@@ -147,7 +147,7 @@ public class Coupon {
         builder.append("ID = ");
         builder.append(id);
         builder.append(", Company ID = ");
-        builder.append(companyId);
+        builder.append(companyID);
         builder.append(", Category = ");
         builder.append(category);
         builder.append(", Title = '");

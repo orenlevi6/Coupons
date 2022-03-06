@@ -12,7 +12,6 @@ public class LoginManager {
 
     private static LoginManager instance = null;
 
-
     private LoginManager() {
         System.out.println("A new login manager instance was created...");
     }
