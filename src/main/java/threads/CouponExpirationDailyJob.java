@@ -22,10 +22,10 @@ public class CouponExpirationDailyJob implements Runnable {
                 System.out.println(err.getMessage());
             }
         }
+        System.out.println("The daily job has stopped running");
     }
 
     public void stop() {
-        System.out.println("The daily job has stopped running");
         this.isRunning = false;
     }
 
