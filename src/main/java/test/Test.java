@@ -7,8 +7,11 @@ import threads.CouponExpirationDailyJob;
 public class Test {
     public static void testAll() throws TableNotCreatedException {
 
-        SchemaTest.createSchema();
-        System.out.println();
+        if (SchemaTest.createSchema()) {
+            System.out.println("SQL is up and running");
+        } else {
+            System.exit(0);
+        }
 
         AdminFacadeTest.testAdminFacade();
         System.out.println();

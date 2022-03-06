@@ -9,8 +9,8 @@ public class TableNotCreatedException extends Exception {
         super(message);
     }
 
-    public TableNotCreatedException(SQLTables table) {
-        super("Failed to create " + table.getMESSAGE());
+    public TableNotCreatedException(SQLTables table, Action action) {
+        super("Failed to " + action.name() + " " + table.getMESSAGE());
     }
 
 }
