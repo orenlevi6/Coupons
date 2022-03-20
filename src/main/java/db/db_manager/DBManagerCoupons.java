@@ -42,14 +42,14 @@ public class DBManagerCoupons {
     public static final String DELETE_COUPON = " DELETE FROM `coupons`.`coupons` WHERE id=? ";
 
     public static final String DELETE_EXPIRED_COUPONS =
-            " DELETE FROM `coupons`.`coupons` WHERE id > 0 AND end_date < current_timestamp()";
+            " DELETE FROM `coupons`.`coupons` WHERE id>0 AND end_date< curdate() ";
 
     //Read all
     public static final String GET_ALL_COUPONS = " SELECT * FROM  `coupons`.`coupons` ";
 
     //Read by filter
     public static final String GET_COUPON_BY_ID = " SELECT * FROM  `coupons`.`coupons` WHERE id=? ";
-    public static final String GET_COUPON_BY_COMPANY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? ";
+    public static final String GET_COUPONS_BY_COMPANY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? ";
     public static final String GET_COUPON_BY_CATEGORY_ID = "  SELECT * FROM  `coupons`.`coupons` WHERE category_id=? ";
     public static final String GET_COUPON_BY_DESCRIPTION = "  SELECT * FROM  `coupons`.`coupons` WHERE description=? ";
     public static final String GET_COUPON_BY_TITLE = " SELECT * FROM  `coupons`.`coupons` WHERE title=? ";
@@ -61,30 +61,30 @@ public class DBManagerCoupons {
 
     public static final String GET_COUPONS_BY_COMPANY_ID_AND_CATEGORY_ID =
             "SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND category_id=?";
-    public static final String GET_COUPON_BY_COMPANY_ID_AND_MAX_PRICE =
+    public static final String GET_COUPONS_BY_COMPANY_ID_AND_MAX_PRICE =
             "  SELECT * FROM  `coupons`.`coupons` WHERE company_id=? AND price<=? ";
 
     //Read by range
-    public static final String GET_AMOUNT_RANGE =
+    public static final String GET_COUPON_BY_AMOUNT_RANGE =
             "  SELECT * FROM  `coupons`.`coupons` WHERE amount BETWEEN ? and ? ";
 
-    //Count coupon
-    public static final String COUNT_COUPON_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
-    public static final String COUNT_COUPON_BY_COMPANY_ID_AND_TITLE =
+    //Count coupons
+    public static final String COUNT_COUPONS_BY_ID = "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=?";
+    public static final String COUNT_COUPONS_BY_COMPANY_ID_AND_TITLE =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE company_id=? AND title=?";
-    public static final String COUNT_COUPON_BY_ID_AND_COMPANY_ID =
+    public static final String COUNT_COUPONS_BY_ID_AND_COMPANY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND company_id=?";
-    public static final String COUNT_COUPON_AMOUNT_BY_ID =
+    public static final String COUNT_COUPONS_AMOUNT_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? AND amount>0";
-    public static final String CHECK_COUPON_EXPIRATION_BY_ID =
+    public static final String COUNT_EXPIRED_COUPONS_BY_ID =
             "SELECT count(*) AS counter FROM `coupons`.`coupons` WHERE id=? and DATE(end_date)<DATE(now())";
 
-    //Coupon purchase - Move (?)
+    //Coupon purchase
     public static final String ADD_COUPON_PURCHASE = "  INSERT INTO `coupons`.`customers_vs_coupons` " +
             " ( `customer_id`, `coupon_id` ) " + " VALUES ( ? , ? ) ";
     public static final String UPDATE_COUPON_TABLE_AMOUNT =
             " UPDATE `coupons`.`coupons` SET amount=amount-1 WHERE id=? ";
-    public static final String DELETE_COUPON_PURCHASE =
-            " DELETE FROM `coupons`.`customers_vs_coupons` WHERE customer_id=? AND coupon_id=? ";
+    public static final String DELETE_COUPON_PURCHASE = " DELETE FROM `coupons`.`customers_vs_coupons` " +
+            "WHERE customer_id=? AND coupon_id=? ";
 
 }

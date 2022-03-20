@@ -1,5 +1,8 @@
 package beans;
 
+/**
+ * All the existing categories for coupons
+ */
 public enum Category {
     FOOD,
     ELECTRICITY,

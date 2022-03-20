@@ -1,5 +1,8 @@
 package exceptions;
 
+/**
+ * This Enum represents all the SQL tables and database created by the program
+ */
 public enum SQLTables {
     SCHEMA("database"),
     CATEGORIES("`categories` table"),
@@ -11,10 +14,18 @@ public enum SQLTables {
 
     public final String MESSAGE;
 
+    /**
+     * Enum constructor
+     *
+     * @param message message for each enum
+     */
     SQLTables(String message) {
         this.MESSAGE = message;
     }
 
+    /**
+     * Returns message from the enum
+     */
     public String getMESSAGE() {
         return MESSAGE;
     }

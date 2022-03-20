@@ -17,9 +17,9 @@ public class DBManagerCustomers {
             + " VALUES ( ?, ?, ?, ?) ";
 
     //Update
-    public static final String UPDATE_CUSTOMER = "UPDATE `coupons`.`customers` " +
-            "SET  first_name = ?, last_name = ?, email = ?, password = ? "
-            + " WHERE id = ?";
+    public static final String UPDATE_CUSTOMER = " UPDATE `coupons`.`customers` " +
+            " SET  first_name = ?, last_name = ?, email = ?, password = ? "
+            + " WHERE id = ? ";
 
     //Delete
     public static final String DELETE_CUSTOMER = " DELETE FROM `coupons`.`customers` WHERE id=? ";
@@ -28,12 +28,12 @@ public class DBManagerCustomers {
     public static final String GET_ALL_CUSTOMERS = " SELECT * FROM  `coupons`.`customers` ";
 
     //Read by filter
-    public static final String GET_CUSTOMER_BY_ID = "SELECT * FROM `coupons`.`customers` WHERE id=?";
-    public static final String GET_CUSTOMERS_BY_FIRST_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? ";
-    public static final String GET_CUSTOMERS_BY_LAST_NAME = " SELECT * FROM `coupons`.`customers` WHERE last_name=? ";
-    public static final String GET_CUSTOMERS_BY_EMAIL = " SELECT * FROM `coupons`.`customers` WHERE email=? ";
+    public static final String GET_CUSTOMER_BY_ID = " SELECT * FROM `coupons`.`customers` WHERE id=? ";
+    public static final String GET_CUSTOMER_BY_FIRST_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? ";
+    public static final String GET_CUSTOMER_BY_LAST_NAME = " SELECT * FROM `coupons`.`customers` WHERE last_name=? ";
+    public static final String GET_CUSTOMER_BY_EMAIL = " SELECT * FROM `coupons`.`customers` WHERE email=? ";
 
-    public static final String GET_CUSTOMERS_BY_FULL_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? AND last_name=? ";
+    public static final String GET_CUSTOMER_BY_FULL_NAME = " SELECT * FROM `coupons`.`customers` WHERE first_name=? AND last_name=? ";
     public static final String GET_CUSTOMERS_BY_EMAIL_AND_PASSWORD =
             " SELECT * FROM  `coupons`.`customers` WHERE email=? AND password =? ";
 

@@ -1,10 +1,13 @@
 package exceptions;
 
+/**
+ * All the actions that can cause exceptions while the program is running
+ */
 public enum Action {
     CREATE,
-    DROP,
-    READ,
     UPDATE,
     DELETE,
-    LOGIN
+    READ,
+    LOGIN,
+    DROP
 }

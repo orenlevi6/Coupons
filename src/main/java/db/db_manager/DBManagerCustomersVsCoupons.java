@@ -18,6 +18,6 @@ public class DBManagerCustomersVsCoupons {
                     "    FOREIGN KEY (`coupon_id`)" +
                     "    REFERENCES `coupons`.`coupons` (`id`)" +
                     "    ON DELETE CASCADE" +
-                    "    ON UPDATE NO ACTION)";
+                    "    ON UPDATE NO ACTION);";
 
 }
